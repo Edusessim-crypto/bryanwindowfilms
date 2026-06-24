@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:74px}
+  body{margin:0}
+  /* reveal-on-scroll (can't be inline; class added by IntersectionObserver) */
+  /* Default state is VISIBLE so the page is never blank (e.g. reduced-motion).
+     JS arms the hidden state only when it confirms the reveal observer is live. */
+  .rv-armed[data-reveal]{opacity:0;transform:translateY(28px)}
+  .rv-armed[data-reveal].rv-in{opacity:1;transform:none;animation:revealUp .8s cubic-bezier(.16,1,.3,1) both}
+  @keyframes revealUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){.rv-armed[data-reveal]{opacity:1;transform:none}}
+  @keyframes waPulse{0%,100%{box-shadow:0 8px 24px rgba(0,0,0,.22),0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 8px 24px rgba(0,0,0,.22),0 0 0 12px rgba(37,211,102,0)}}
+  /* hero overlay — responsive, can't be inline */
+  .hero-overlay{background:rgba(0,30,80,0.75)}
+</style>
+</helmet>
+<div style="font-family:'Manrope',system-ui,sans-serif;color:#13243b;background:#ffffff;overflow-x:hidden">
+
+  <!-- ===================== HEADER ===================== -->
+  <header style="position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(0,56,118,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)">
+    <div style="max-width:1180px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between">
+      <a href="#inicio" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+        <img src="uploads/Logo BS Branca.png" alt="Bryan Window Films" style="height:38px;width:auto;display:block" />
+        <span style="display:flex;flex-direction:column;line-height:1">
+          <span style="font-family:'Sora';font-weight:700;font-size:15px;letter-spacing:.5px;color:#fff">BRYAN</span>
+          <span style="font-size:9.5px;letter-spacing:3.4px;color:#C9CDD2;font-weight:600;margin-top:2px">WINDOW FILMS</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <nav style="display:flex;align-items:center;gap:30px">
+          <a href="#inicio" style="text-decoration:none;color:rgba(255,255,255,.82);font-size:14px;font-weight:500" style-hover="color:#C9CDD2">Início</a>
+          <a href="#servicos" style="text-decoration:none;color:rgba(255,255,255,.82);font-size:14px;font-weight:500" style-hover="color:#C9CDD2">Serviços</a>
+          <a href="#sobre" style="text-decoration:none;color:rgba(255,255,255,.82);font-size:14px;font-weight:500" style-hover="color:#C9CDD2">Sobre</a>
+          <a href="#portfolio" style="text-decoration:none;color:rgba(255,255,255,.82);font-size:14px;font-weight:500" style-hover="color:#C9CDD2">Portfólio</a>
+          <a href="#contato" style="text-decoration:none;color:rgba(255,255,255,.82);font-size:14px;font-weight:500" style-hover="color:#C9CDD2">Contato</a>
+          <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento" target="_blank" style="text-decoration:none;background:#25D366;color:#ffffff;font-weight:700;font-size:13.5px;padding:10px 18px;border-radius:8px" style-hover="background:#2ee06f">Solicitar Orçamento</a>
+        </nav>
+      </sc-if>
+
+      <!-- Mobile hamburger -->
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ toggleMenu }}" aria-label="Menu" style="display:flex;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;background:transparent;border:1px solid rgba(255,255,255,.22);border-radius:9px;cursor:pointer;padding:0 11px">
+          <span style="display:block;height:2px;background:#fff;border-radius:2px"></span>
+          <span style="display:block;height:2px;background:#fff;border-radius:2px"></span>
+          <span style="display:block;height:2px;background:#C9CDD2;border-radius:2px"></span>
+        </button>
+      </sc-if>
+    </div>
+  </header>
+
+  <!-- ===================== MOBILE MENU OVERLAY ===================== -->
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:70;background:rgba(0,20,45,.55);backdrop-filter:blur(2px)">
+      <div style="position:absolute;top:0;right:0;bottom:0;width:78%;max-width:320px;background:#003876;padding:22px;display:flex;flex-direction:column;gap:6px;box-shadow:-10px 0 40px rgba(0,0,0,.35)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+          <span style="font-family:'Sora';font-weight:700;color:#fff;font-size:15px">Menu</span>
+          <button onClick="{{ closeMenu }}" aria-label="Fechar" style="width:38px;height:38px;background:rgba(255,255,255,.08);border:none;border-radius:9px;color:#fff;font-size:20px;cursor:pointer">×</button>
+        </div>
+        <a href="#inicio" onClick="{{ closeMenu }}" style="text-decoration:none;color:#fff;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08)">Início</a>
+        <a href="#servicos" onClick="{{ closeMenu }}" style="text-decoration:none;color:#fff;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08)">Serviços</a>
+        <a href="#sobre" onClick="{{ closeMenu }}" style="text-decoration:none;color:#fff;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08)">Sobre</a>
+        <a href="#portfolio" onClick="{{ closeMenu }}" style="text-decoration:none;color:#fff;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08)">Portfólio</a>
+        <a href="#contato" onClick="{{ closeMenu }}" style="text-decoration:none;color:#fff;font-size:17px;font-weight:600;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08)">Contato</a>
+        <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento" target="_blank" style="margin-top:18px;text-decoration:none;text-align:center;background:#2D2D2D;color:#ffffff;font-weight:700;font-size:15px;padding:15px;border-radius:10px">Solicitar Orçamento</a>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="inicio" style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:104px 20px 64px;background-image:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600');background-size:cover;background-position:center;overflow:hidden">
+    <div class="hero-overlay" style="position:absolute;inset:0"></div>
+    <div data-reveal style="position:relative;max-width:760px;width:100%;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:34px">
+        <img src="uploads/LOGO-Catalogo.png" alt="Bryan Window Films" style="height:70px;width:auto;display:block" />
+        <span style="font-family:'Sora';font-weight:700;font-size:15px;letter-spacing:6px;color:#fff;text-transform:uppercase">Bryan Window Films</span>
+      </div>
+      <h1 style="font-family:'Sora';font-weight:800;color:#fff;font-size:clamp(32px,7vw,56px);line-height:1.07;margin:0 0 18px;letter-spacing:-.5px">Proteção e Estilo para o seu <span style="color:#C9CDD2">Veículo</span> e <span style="color:#C9CDD2">Patrimônio</span></h1>
+      <p style="color:rgba(255,255,255,.82);font-size:clamp(15px,2.4vw,18px);line-height:1.6;margin:0 0 32px;max-width:560px">Instalação profissional de películas automotivas e arquitetônicas, proteção de pintura e envelopamento com produtos de alta performance e acabamento impecável.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+        <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento" target="_blank" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:#25D366;color:#06310f;font-weight:700;font-size:16px;padding:16px 26px;border-radius:11px;box-shadow:0 10px 28px rgba(37,211,102,.32)" style-hover="background:#2ee06f">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#06310f"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.7-.9c.2-.3.4-.2.6-.1l1.9.9c.3.1.4.2.5.3.1.2.1.8-.1 1.4Z"/></svg>
+          Solicitar Orçamento
+        </a>
+        <a href="#servicos" style="display:inline-flex;align-items:center;text-decoration:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;font-weight:600;font-size:16px;padding:16px 24px;border-radius:11px" style-hover="background:rgba(255,255,255,.15)">Ver Serviços</a>
+      </div>
+      <div style="display:flex;gap:26px;margin-top:38px;flex-wrap:wrap;justify-content:center">
+        <div><div style="font-family:'Sora';font-weight:800;color:#fff;font-size:22px">+10</div><div style="color:rgba(255,255,255,.7);font-size:12.5px">anos de experiência</div></div>
+        <div><div style="font-family:'Sora';font-weight:800;color:#fff;font-size:22px">100%</div><div style="color:rgba(255,255,255,.7);font-size:12.5px">garantia nos serviços</div></div>
+        <div><div style="font-family:'Sora';font-weight:800;color:#fff;font-size:22px">★★★★★</div><div style="color:rgba(255,255,255,.7);font-size:12.5px">clientes satisfeitos</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVIÇOS ===================== -->
+  <section id="servicos" style="padding:74px 20px;background:#f4f7fb">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal style="text-align:center;max-width:640px;margin:0 auto 46px">
+        <span style="font-size:12px;letter-spacing:2.4px;font-weight:700;color:#2D2D2D;text-transform:uppercase">Nossos Serviços</span>
+        <h2 style="font-family:'Sora';font-weight:800;font-size:clamp(26px,5vw,38px);color:#003876;margin:10px 0 0;letter-spacing:-.5px">Soluções completas em películas e proteção</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px">
+
+        <div data-reveal style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 22px rgba(0,40,90,.07);border:1px solid #e7edf4;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 16px 38px rgba(0,40,90,.13)">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600" alt="Película automotiva" loading="lazy" style="display:block;width:100%;aspect-ratio:16/10;object-fit:cover">
+          <div style="padding:24px">
+            <h3 style="font-family:'Sora';font-weight:700;font-size:20px;color:#003876;margin:0 0 10px">Películas Automotivas</h3>
+            <p style="color:#5a6678;font-size:14.5px;line-height:1.6;margin:0 0 18px">Proteção solar, privacidade e conforto térmico para o seu veículo, com acabamento impecável e durabilidade comprovada.</p>
+            <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento" target="_blank" style="display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:#003876;font-weight:700;font-size:14px" style-hover="color:#2D2D2D">Solicitar Orçamento →</a>
+          </div>
+        </div>
+
+        <div data-reveal style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 22px rgba(0,40,90,.07);border:1px solid #e7edf4;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 16px 38px rgba(0,40,90,.13)">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600" alt="Película arquitetônica" loading="lazy" style="display:block;width:100%;aspect-ratio:16/10;object-fit:cover">
+          <div style="padding:24px">
+            <h3 style="font-family:'Sora';font-weight:700;font-size:20px;color:#003876;margin:0 0 10px">Películas Arquitetônicas</h3>
+            <p style="color:#5a6678;font-size:14.5px;line-height:1.6;margin:0 0 18px">Controle solar, segurança e privacidade para residências e empresas, reduzindo calor, ofuscamento e desbotamento.</p>
+            <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento" target="_blank" style="display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:#003876;font-weight:700;font-size:14px" style-hover="color:#2D2D2D">Solicitar Orçamento →</a>
+          </div>
+        </div>
+
+        <div data-reveal style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 22px rgba(0,40,90,.07);border:1px solid #e7edf4;transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 16px 38px rgba(0,40,90,.13)">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600" alt="PPF e envelopamento" loading="lazy" style="display:block;width:100%;aspect-ratio:16/10;object-fit:cover">
+          <div style="padding:24px">
+            <h3 style="font-family:'Sora';font-weight:700;font-size:20px;color:#003876;margin:0 0 10px">PPF, Envelopamento & Vitrificação</h3>
+            <p style="color:#5a6678;font-size:14.5px;line-height:1.6;margin:0 0 18px">Proteção e transformação completa da pintura do seu veículo, com tecnologia de ponta e resultado de alto padrão.</p>
+            <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento" target="_blank" style="display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:#003876;font-weight:700;font-size:14px" style-hover="color:#2D2D2D">Solicitar Orçamento →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== POR QUE NOS ESCOLHER ===================== -->
+  <section id="sobre" style="padding:74px 20px;background:#003876;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;opacity:.1;background:repeating-linear-gradient(115deg,#fff 0 1px,transparent 1px 60px)"></div>
+    <div style="position:relative;max-width:1180px;margin:0 auto">
+      <div data-reveal style="text-align:center;max-width:640px;margin:0 auto 46px">
+        <span style="font-size:12px;letter-spacing:2.4px;font-weight:700;color:#C9CDD2;text-transform:uppercase">Por que nos escolher</span>
+        <h2 style="font-family:'Sora';font-weight:800;font-size:clamp(26px,5vw,38px);color:#fff;margin:10px 0 0;letter-spacing:-.5px">Qualidade que você vê e sente</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+        <div data-reveal style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:26px">
+          <div style="width:50px;height:50px;border:1.5px solid #C9CDD2;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;color:#C9CDD2;font-size:17px;margin-bottom:16px">01</div>
+          <h3 style="font-family:'Sora';font-weight:700;color:#fff;font-size:17px;margin:0 0 8px">Profissionais certificados</h3>
+          <p style="color:rgba(255,255,255,.66);font-size:14px;line-height:1.55;margin:0">Equipe treinada e especializada na aplicação de cada tipo de película e proteção.</p>
+        </div>
+        <div data-reveal style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:26px">
+          <div style="width:50px;height:50px;border:1.5px solid #C9CDD2;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;color:#C9CDD2;font-size:17px;margin-bottom:16px">02</div>
+          <h3 style="font-family:'Sora';font-weight:700;color:#fff;font-size:17px;margin:0 0 8px">Produtos de alta qualidade</h3>
+          <p style="color:rgba(255,255,255,.66);font-size:14px;line-height:1.55;margin:0">Trabalhamos apenas com materiais de marcas reconhecidas e alta performance.</p>
+        </div>
+        <div data-reveal style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:26px">
+          <div style="width:50px;height:50px;border:1.5px solid #C9CDD2;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;color:#C9CDD2;font-size:17px;margin-bottom:16px">03</div>
+          <h3 style="font-family:'Sora';font-weight:700;color:#fff;font-size:17px;margin:0 0 8px">Atendimento personalizado</h3>
+          <p style="color:rgba(255,255,255,.66);font-size:14px;line-height:1.55;margin:0">Orientamos você na melhor solução para sua necessidade, sem enrolação.</p>
+        </div>
+        <div data-reveal style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:26px">
+          <div style="width:50px;height:50px;border:1.5px solid #C9CDD2;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:800;color:#C9CDD2;font-size:17px;margin-bottom:16px">04</div>
+          <h3 style="font-family:'Sora';font-weight:700;color:#fff;font-size:17px;margin:0 0 8px">Garantia nos serviços</h3>
+          <p style="color:rgba(255,255,255,.66);font-size:14px;line-height:1.55;margin:0">Todos os serviços contam com garantia e suporte pós-instalação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PORTFÓLIO ===================== -->
+  <section id="portfolio" style="padding:74px 20px;background:#fff">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal style="text-align:center;max-width:640px;margin:0 auto 30px">
+        <span style="font-size:12px;letter-spacing:2.4px;font-weight:700;color:#2D2D2D;text-transform:uppercase">Portfólio</span>
+        <h2 style="font-family:'Sora';font-weight:800;font-size:clamp(26px,5vw,38px);color:#003876;margin:10px 0 0;letter-spacing:-.5px">Trabalhos realizados</h2>
+      </div>
+      <div data-reveal style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:30px">
+        <sc-for list="{{ filterBtns }}" as="btn" hint-placeholder-count="4">
+          <button onClick="{{ btn.onClick }}" style="{{ btn.style }}">{{ btn.label }}</button>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:{{ gridCols }};gap:14px">
+        <sc-for list="{{ filteredItems }}" as="item" hint-placeholder-count="6">
+          <div data-reveal style="position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;border:1px solid #e7edf4;background:#e8edf3;cursor:pointer;transition:transform .3s" style-hover="transform:scale(1.02)">
+            <img src="{{ item.img }}" alt="{{ item.catLabel }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+            <span style="position:absolute;top:8px;left:8px;background:rgba(0,56,118,.9);color:#fff;font-size:10.5px;font-weight:600;padding:4px 9px;border-radius:6px;z-index:1">{{ item.catLabel }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DEPOIMENTOS ===================== -->
+  <section style="padding:74px 20px;background:#f4f7fb">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal style="text-align:center;max-width:640px;margin:0 auto 42px">
+        <span style="font-size:12px;letter-spacing:2.4px;font-weight:700;color:#2D2D2D;text-transform:uppercase">Depoimentos</span>
+        <h2 style="font-family:'Sora';font-weight:800;font-size:clamp(26px,5vw,38px);color:#003876;margin:10px 0 0;letter-spacing:-.5px">O que dizem nossos clientes</h2>
+      </div>
+
+      <!-- Desktop grid -->
+      <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+          <sc-for list="{{ testimonials }}" as="t" hint-placeholder-count="3">
+            <div data-reveal style="background:#fff;border-radius:16px;padding:28px;border:1px solid #e7edf4;box-shadow:0 4px 22px rgba(0,40,90,.06)">
+              <div style="color:#2D2D2D;font-size:16px;margin-bottom:12px">★★★★★</div>
+              <p style="color:#3d495a;font-size:15px;line-height:1.65;margin:0 0 20px">{{ t.text }}</p>
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:44px;height:44px;border-radius:50%;background:#003876;color:#C9CDD2;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:700">{{ t.initial }}</div>
+                <div><div style="font-weight:700;color:#003876;font-size:14.5px">{{ t.name }}</div><div style="color:#8893a3;font-size:12.5px">{{ t.role }}</div></div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <!-- Mobile carousel -->
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <div style="background:#fff;border-radius:16px;padding:28px;border:1px solid #e7edf4;box-shadow:0 4px 22px rgba(0,40,90,.06);min-height:230px">
+            <div style="color:#2D2D2D;font-size:16px;margin-bottom:12px">★★★★★</div>
+            <p style="color:#3d495a;font-size:15.5px;line-height:1.65;margin:0 0 20px">{{ current.text }}</p>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:44px;height:44px;border-radius:50%;background:#003876;color:#C9CDD2;display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:700">{{ current.initial }}</div>
+              <div><div style="font-weight:700;color:#003876;font-size:14.5px">{{ current.name }}</div><div style="color:#8893a3;font-size:12.5px">{{ current.role }}</div></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px">
+            <button onClick="{{ prevT }}" aria-label="Anterior" style="width:44px;height:44px;border-radius:50%;border:1px solid #cdd7e3;background:#fff;color:#003876;font-size:18px;cursor:pointer">‹</button>
+            <div style="display:flex;gap:7px">
+              <sc-for list="{{ dots }}" as="d" hint-placeholder-count="3">
+                <span style="{{ d.style }}"></span>
+              </sc-for>
+            </div>
+            <button onClick="{{ nextT }}" aria-label="Próximo" style="width:44px;height:44px;border-radius:50%;border:1px solid #cdd7e3;background:#fff;color:#003876;font-size:18px;cursor:pointer">›</button>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ===================== FALE CONOSCO ===================== -->
+  <section id="contato" style="padding:74px 20px;background:linear-gradient(160deg,#002a5a,#003876)">
+    <div style="max-width:1000px;margin:0 auto">
+      <div data-reveal style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:clamp(26px,5vw,48px);text-align:center">
+        <span style="font-size:12px;letter-spacing:2.4px;font-weight:700;color:#C9CDD2;text-transform:uppercase">Fale Conosco</span>
+        <h2 style="font-family:'Sora';font-weight:800;font-size:clamp(26px,5vw,38px);color:#fff;margin:10px 0 14px;letter-spacing:-.5px">Solicite seu orçamento agora</h2>
+        <p style="color:rgba(255,255,255,.72);font-size:16px;line-height:1.6;margin:0 auto 28px;max-width:520px">Atendimento rápido e sem compromisso pelo WhatsApp. Tire suas dúvidas e receba uma proposta personalizada.</p>
+        <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento" target="_blank" style="display:inline-flex;align-items:center;gap:12px;text-decoration:none;background:#25D366;color:#06310f;font-weight:800;font-size:18px;padding:18px 34px;border-radius:13px;box-shadow:0 12px 32px rgba(37,211,102,.34)" style-hover="background:#2ee06f">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="#06310f"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.7-.9c.2-.3.4-.2.6-.1l1.9.9c.3.1.4.2.5.3.1.2.1.8-.1 1.4Z"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:40px;text-align:left">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px">
+            <div style="font-size:11px;letter-spacing:1.5px;color:#C9CDD2;font-weight:700;text-transform:uppercase;margin-bottom:8px">Endereço</div>
+            <div style="color:#fff;font-size:14.5px;line-height:1.5">[ Inserir endereço da loja ]<br>[ Cidade / RJ ]</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px">
+            <div style="font-size:11px;letter-spacing:1.5px;color:#C9CDD2;font-weight:700;text-transform:uppercase;margin-bottom:8px">Telefone</div>
+            <div style="color:#fff;font-size:14.5px;line-height:1.5">(21) 96431-5381<br>[ telefone fixo / 2 ]</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:18px">
+            <div style="font-size:11px;letter-spacing:1.5px;color:#C9CDD2;font-weight:700;text-transform:uppercase;margin-bottom:8px">Horário</div>
+            <div style="color:#fff;font-size:14.5px;line-height:1.5">Seg a Sex — [ 08h às 18h ]<br>Sáb — [ 08h às 12h ]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="background:#001f42;padding:48px 20px 28px">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <img src="uploads/Logo BS Branca.png" alt="Bryan Window Films" style="height:38px;width:auto;display:block" />
+          <span style="display:flex;flex-direction:column;line-height:1"><span style="font-family:'Sora';font-weight:700;font-size:15px;color:#fff">BRYAN</span><span style="font-size:9.5px;letter-spacing:3px;color:#C9CDD2;font-weight:600;margin-top:2px">WINDOW FILMS</span></span>
+        </div>
+        <p style="color:rgba(255,255,255,.55);font-size:13.5px;line-height:1.6;margin:0;max-width:280px">Películas automotivas e arquitetônicas, PPF, envelopamento e vitrificação de pintura com qualidade profissional.</p>
+      </div>
+      <div>
+        <div style="color:#fff;font-family:'Sora';font-weight:700;font-size:14px;margin-bottom:14px">Links rápidos</div>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <a href="#inicio" style="text-decoration:none;color:rgba(255,255,255,.6);font-size:14px" style-hover="color:#C9CDD2">Início</a>
+          <a href="#servicos" style="text-decoration:none;color:rgba(255,255,255,.6);font-size:14px" style-hover="color:#C9CDD2">Serviços</a>
+          <a href="#sobre" style="text-decoration:none;color:rgba(255,255,255,.6);font-size:14px" style-hover="color:#C9CDD2">Sobre</a>
+          <a href="#portfolio" style="text-decoration:none;color:rgba(255,255,255,.6);font-size:14px" style-hover="color:#C9CDD2">Portfólio</a>
+          <a href="#contato" style="text-decoration:none;color:rgba(255,255,255,.6);font-size:14px" style-hover="color:#C9CDD2">Contato</a>
+        </div>
+      </div>
+      <div>
+        <div style="color:#fff;font-family:'Sora';font-weight:700;font-size:14px;margin-bottom:14px">Redes sociais</div>
+        <div style="display:flex;gap:10px">
+          <a href="#" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.7);font-size:13px;font-weight:600" style-hover="border-color:#C9CDD2;color:#C9CDD2">IG</a>
+          <a href="#" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.7);font-size:13px;font-weight:600" style-hover="border-color:#C9CDD2;color:#C9CDD2">FB</a>
+          <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento" target="_blank" style="width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,.7);font-size:13px;font-weight:600" style-hover="border-color:#25D366;color:#25D366">WA</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1180px;margin:34px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);text-align:center;color:rgba(255,255,255,.45);font-size:13px">© 2026 Bryan Window Films. Todos os direitos reservados.</div>
+  </footer>
+
+  <!-- ===================== WHATSAPP FLUTUANTE ===================== -->
+  <sc-if value="{{ showFloating }}" hint-placeholder-val="{{ true }}">
+    <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento" target="_blank" aria-label="WhatsApp" style="position:fixed;bottom:20px;right:20px;z-index:80;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;animation:waPulse 2.4s ease-in-out infinite" style-hover="background:#2ee06f">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.4.5-.3.3c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.7-.9c.2-.3.4-.2.6-.1l1.9.9c.3.1.4.2.5.3.1.2.1.8-.1 1.4Z"/></svg>
+    </a>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844},&quot;testimonialAutoplay&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showFloatingWhatsApp&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menuOpen: false,
+      isMobile: (typeof window !== 'undefined' ? window.innerWidth < 900 : false),
+      filter: 'todos',
+      tIndex: 0
+    };
+    this._onResize = this._onResize.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this._onResize);
+    // Scroll reveal (fade-in). Default state is visible; we only "arm" the hidden
+    // state once we know the observer can run, so the page is never blank.
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if ('IntersectionObserver' in window && !reduce) {
+      this._armed = true;
+      document.querySelectorAll('[data-reveal]').forEach((n) => n.classList.add('rv-armed'));
+    }
+    if ('IntersectionObserver' in window) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('rv-in'); this._io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      // Attach after first paint so layout/positions are settled.
+      requestAnimationFrame(() => requestAnimationFrame(() => this._observe()));
+    } else {
+      document.querySelectorAll('[data-reveal]').forEach((n) => n.classList.add('rv-in'));
+    }
+    // Safety net: ensure nothing stays hidden if the observer never fires.
+    this._fallback = setTimeout(() => {
+      document.querySelectorAll('[data-reveal]:not(.rv-in)').forEach((n) => {
+        if (n.getBoundingClientRect().top < (window.innerHeight || 800)) n.classList.add('rv-in');
+      });
+    }, 600);
+    // Reveal on scroll as a backup to the observer.
+    this._onScroll = () => this._revealInView();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    // Testimonial autoplay (mobile)
+    if (this.props.testimonialAutoplay !== false) {
+      this._timer = setInterval(() => {
+        if (this.state.isMobile && !this.state.menuOpen) {
+          this.setState((s) => ({ tIndex: (s.tIndex + 1) % 3 }));
+        }
+      }, 5000);
+    }
+  }
+
+  componentDidUpdate() { this._observe(); }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+    if (this._timer) clearInterval(this._timer);
+    if (this._fallback) clearTimeout(this._fallback);
+  }
+
+  _onResize() {
+    const m = window.innerWidth < 900;
+    if (m !== this.state.isMobile) this.setState({ isMobile: m });
+  }
+
+  _revealInView() {
+    // Fallback: never leave above-the-fold content hidden.
+    const h = window.innerHeight || 800;
+    document.querySelectorAll('[data-reveal]:not(.rv-in)').forEach((el) => {
+      const top = el.getBoundingClientRect().top;
+      if (top < h * 0.95) el.classList.add('rv-in');
+    });
+  }
+
+  _observe() {
+    if (!this._io) {
+      // No observer support: reveal everything.
+      document.querySelectorAll('[data-reveal]:not(.rv-in)').forEach((n) => n.classList.add('rv-in'));
+      return;
+    }
+    document.querySelectorAll('[data-reveal]:not(.rv-in)').forEach((n) => {
+      if (this._armed) n.classList.add('rv-armed');
+      this._io.observe(n);
+    });
+    // Catch anything already in view at attach time.
+    this._revealInView();
+  }
+
+  renderVals() {
+    const isMobile = this.state.isMobile;
+    const filter = this.state.filter;
+
+    const filters = [
+      { key: 'todos', label: 'Todos' },
+      { key: 'auto', label: 'Automotivo' },
+      { key: 'arq', label: 'Arquitetônico' },
+      { key: 'ppf', label: 'PPF & Envelopamento' }
+    ];
+    const baseBtn = {
+      fontFamily: "'Manrope',sans-serif", fontSize: '13.5px', fontWeight: 600,
+      padding: '10px 18px', borderRadius: '9px', cursor: 'pointer',
+      transition: 'all .2s', border: '1px solid #cdd7e3'
+    };
+    const filterBtns = filters.map((f) => ({
+      label: f.label,
+      onClick: () => this.setState({ filter: f.key }),
+      style: f.key === filter
+        ? { ...baseBtn, background: '#003876', color: '#fff', borderColor: '#003876' }
+        : { ...baseBtn, background: '#fff', color: '#5a6678' }
+    }));
+
+    const items = [
+      { cat: 'auto', catLabel: 'Automotivo', img: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600' },
+      { cat: 'arq', catLabel: 'Arquitetônico', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600' },
+      { cat: 'ppf', catLabel: 'PPF & Env.', img: 'https://images.unsplash.com/photo-1611821064430-0d40291485ad?w=600' },
+      { cat: 'auto', catLabel: 'Automotivo', img: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=600' },
+      { cat: 'ppf', catLabel: 'PPF & Env.', img: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600' },
+      { cat: 'arq', catLabel: 'Arquitetônico', img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600' },
+      { cat: 'auto', catLabel: 'Automotivo', img: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600' },
+      { cat: 'ppf', catLabel: 'PPF & Env.', img: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600' },
+      { cat: 'arq', catLabel: 'Arquitetônico', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600' }
+    ];
+    const filteredItems = filter === 'todos' ? items : items.filter((i) => i.cat === filter);
+
+    const testimonials = [
+      { initial: 'R', name: 'Rafael M.', role: 'Cliente automotivo', text: '"Serviço impecável na película do meu carro. Atendimento atencioso e acabamento perfeito. Recomendo demais!"' },
+      { initial: 'C', name: 'Carla S.', role: 'Cliente arquitetônico', text: '"Coloquei película nas janelas do escritório e o calor diminuiu muito. Equipe pontual e profissional."' },
+      { initial: 'J', name: 'Jonas P.', role: 'Cliente PPF', text: '"Fiz o PPF e a vitrificação. O carro ficou com aspecto de novo e protegido. Trabalho de altíssima qualidade."' }
+    ];
+    const current = testimonials[this.state.tIndex] || testimonials[0];
+    const dotBase = { width: '8px', height: '8px', borderRadius: '50%', display: 'inline-block', transition: 'all .2s' };
+    const dots = testimonials.map((t, i) => ({
+      style: i === this.state.tIndex
+        ? { ...dotBase, width: '22px', borderRadius: '5px', background: '#003876' }
+        : { ...dotBase, background: '#c3cedb' }
+    }));
+
+    return {
+      isMobile,
+      isDesktop: !isMobile,
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      filterBtns,
+      filteredItems,
+      gridCols: isMobile ? 'repeat(2,1fr)' : 'repeat(3,1fr)',
+      testimonials,
+      current,
+      dots,
+      prevT: () => this.setState((s) => ({ tIndex: (s.tIndex + 2) % 3 })),
+      nextT: () => this.setState((s) => ({ tIndex: (s.tIndex + 1) % 3 })),
+      showFloating: this.props.showFloatingWhatsApp !== false
+    };
+  }
+}
+</script>
+</body>
+</html>
