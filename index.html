@@ -67,15 +67,10 @@
   <!-- ========== HERO ========== -->
   <section class="hero" id="inicio">
 
-    <!-- Vídeo de fundo via Vimeo -->
-    <div class="hero__video-wrap">
-      <iframe class="hero__video"
-        src="https://player.vimeo.com/video/1205847710?background=1&autoplay=1&loop=1&muted=1&autopause=0&controls=0"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen>
-      </iframe>
-    </div>
+    <!-- Vídeo de fundo: MP4 local (funciona em todos os dispositivos) -->
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
+      <source src="assets/hero-video.mp4" type="video/mp4" />
+    </video>
 
     <!-- Fallback / overlay -->
     <div class="hero__overlay"></div>
@@ -605,36 +600,5 @@
   </div>
 
   <script src="js/main.js"></script>
-  <script>
-    // Redimensiona o iframe do Vimeo para cobrir o hero como background
-    (function () {
-      var wrap = document.querySelector('.hero__video-wrap');
-      var iframe = wrap && wrap.querySelector('iframe');
-      if (!iframe) return;
-
-      function coverResize() {
-        var ww = wrap.offsetWidth;
-        var wh = wrap.offsetHeight;
-        var ratio = 16 / 9;
-        var iw, ih;
-        if (ww / wh > ratio) {
-          iw = ww;
-          ih = ww / ratio;
-        } else {
-          ih = wh;
-          iw = wh * ratio;
-        }
-        iframe.style.width  = iw + 'px';
-        iframe.style.height = ih + 'px';
-        iframe.style.position = 'absolute';
-        iframe.style.left = ((ww - iw) / 2) + 'px';
-        iframe.style.top  = ((wh - ih) / 2) + 'px';
-        iframe.style.border = 'none';
-      }
-
-      coverResize();
-      window.addEventListener('resize', coverResize);
-    })();
-  </script>
 </body>
 </html>
