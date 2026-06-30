@@ -604,5 +604,13 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    // Corrige altura real da viewport no mobile (resolve barra do Safari/Chrome)
+    function setVH() {
+      document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+    }
+    setVH();
+    window.addEventListener('resize', setVH);
+  </script>
 </body>
 </html>
