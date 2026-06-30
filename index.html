@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bryan Window Films — Películas automotivas, arquitetônicas, PPF, envelopamento e vitrificação. Proteção e estilo para seu veículo e patrimônio." />
+  <title>Bryan Window Films | Películas & Proteção Automotiva</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="header__container">
+
+        <!-- Ícone quadrado + texto empilhado -->
+      <a href="#inicio" class="header__logo">
+        <img src="assets/icon-header.png" alt="" class="header__icon" />
+        <span class="header__brand">
+          <span class="header__brand-name">BRYAN</span>
+          <span class="header__brand-sub">WINDOW FILMS</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="header__nav" id="nav">
+        <a href="#inicio" class="header__nav-link">Início</a>
+        <a href="#servicos" class="header__nav-link">Serviços</a>
+        <a href="#projetos" class="header__nav-link">Projetos</a>
+        <a href="#parceiros" class="header__nav-link">Parceiros</a>
+        <a href="#contato" class="header__nav-link">Contato</a>
+      </nav>
+
+      <!-- CTA + Hamburger -->
+      <div class="header__actions">
+        <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento"
+           target="_blank" rel="noopener" class="btn btn--whatsapp header__cta">
+          Solicitar Orçamento
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#inicio" class="mobile-nav__link">Início</a>
+      <a href="#servicos" class="mobile-nav__link">Serviços</a>
+      <a href="#projetos" class="mobile-nav__link">Projetos</a>
+      <a href="#parceiros" class="mobile-nav__link">Parceiros</a>
+      <a href="#contato" class="mobile-nav__link">Contato</a>
+      <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento"
+         target="_blank" rel="noopener" class="btn btn--whatsapp mobile-nav__cta">
+        Solicitar Orçamento
+      </a>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="inicio">
+
+    <!-- Vídeo de fundo (desktop) — substitua hero-video.mp4 pelo arquivo do cliente -->
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
+      <source src="assets/hero-video.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Fallback / overlay -->
+    <div class="hero__overlay"></div>
+
+    <!-- Conteúdo -->
+    <div class="hero__content fade-in">
+      <!-- Logo branca horizontal com fundo transparente -->
+      <div class="hero__logo-wrap">
+        <img src="assets/logo-branca.png" alt="Bryan Window Films" class="hero__logo-img" />
+      </div>
+        <h1 class="hero__title">Proteção e Estilo para o seu<br />Veículo e Patrimônio</h1>
+      <p class="hero__sub">Instalação profissional com produtos de alta performance.<br class="hide-mobile" />
+        Película, PPF, Envelopamento e muito mais.</p>
+      <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento"
+         target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg hero__cta">
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Solicitar Orçamento
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ========== SERVIÇOS ========== -->
+  <section class="services section" id="servicos">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-eyebrow">O que fazemos</p>
+        <h2 class="section-title">Soluções Completas em<br />Proteção e Estética</h2>
+        <p class="section-sub">Cada serviço pensado para preservar, proteger e valorizar seu patrimônio.</p>
+      </div>
+
+      <div class="services__grid">
+
+        <!-- Card 1 — Películas Automotivas -->
+        <article class="service-card fade-in" data-service="auto">
+          <div class="service-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+                 alt="Películas Automotivas" class="service-card__img" loading="lazy" />
+            <div class="service-card__overlay"></div>
+          </div>
+          <div class="service-card__body">
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M19 17H5l-2-6h18l-2 6z"/><path d="M5 17l-1 4h16l-1-4M8 11V7a4 4 0 018 0v4"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Películas Automotivas</h3>
+            <p class="service-card__desc">Proteção solar, privacidade e conforto térmico para o seu veículo.</p>
+            <button class="service-card__btn" onclick="openModal('auto')">Ver detalhes</button>
+          </div>
+        </article>
+
+        <!-- Card 2 — Películas Arquitetônicas -->
+        <article class="service-card fade-in" data-service="arq">
+          <div class="service-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80"
+                 alt="Películas Arquitetônicas" class="service-card__img" loading="lazy" />
+            <div class="service-card__overlay"></div>
+          </div>
+          <div class="service-card__body">
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18M16 3v18M2 9h20M2 15h20"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Películas Arquitetônicas</h3>
+            <p class="service-card__desc">Controle solar, segurança e privacidade para residências e empresas.</p>
+            <button class="service-card__btn" onclick="openModal('arq')">Ver detalhes</button>
+          </div>
+        </article>
+
+        <!-- Card 3 — PPF -->
+        <article class="service-card fade-in" data-service="ppf">
+          <div class="service-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1617814076668-8dfc6fe4b304?w=600&q=80"
+                 alt="PPF Paint Protection Film" class="service-card__img" loading="lazy" />
+            <div class="service-card__overlay"></div>
+          </div>
+          <div class="service-card__body">
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">PPF — Paint Protection Film</h3>
+            <p class="service-card__desc">Proteção invisível contra riscos, pedras e agentes externos.</p>
+            <button class="service-card__btn" onclick="openModal('ppf')">Ver detalhes</button>
+          </div>
+        </article>
+
+        <!-- Card 4 — Envelopamento -->
+        <article class="service-card fade-in" data-service="env">
+          <div class="service-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&q=80"
+                 alt="Envelopamento Automotivo" class="service-card__img" loading="lazy" />
+            <div class="service-card__overlay"></div>
+          </div>
+          <div class="service-card__body">
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Envelopamento</h3>
+            <p class="service-card__desc">Transformação visual do veículo com vinil de alta qualidade.</p>
+            <button class="service-card__btn" onclick="openModal('env')">Ver detalhes</button>
+          </div>
+        </article>
+
+        <!-- Card 5 — Vitrificação -->
+        <article class="service-card fade-in" data-service="vit">
+          <div class="service-card__img-wrap">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80"
+                 alt="Vitrificação de Pintura" class="service-card__img" loading="lazy" />
+            <div class="service-card__overlay"></div>
+          </div>
+          <div class="service-card__body">
+            <div class="service-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+              </svg>
+            </div>
+            <h3 class="service-card__title">Vitrificação de Pintura</h3>
+            <p class="service-card__desc">Camada protetora que preserva o brilho e a integridade da pintura.</p>
+            <button class="service-card__btn" onclick="openModal('vit')">Ver detalhes</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PORTFÓLIO ========== -->
+  <section class="portfolio section" id="projetos">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-eyebrow">Nossos trabalhos</p>
+        <h2 class="section-title">Resultados que Falam<br />por Si Mesmos</h2>
+        <p class="section-sub">Cada projeto entregue com precisão, cuidado e excelência técnica.</p>
+      </div>
+
+      <div class="portfolio__grid">
+        <div class="portfolio__item fade-in">
+          <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80"
+               alt="Película Automotiva" loading="lazy" />
+          <div class="portfolio__item-overlay">
+            <span>Película Automotiva</span>
+          </div>
+        </div>
+        <div class="portfolio__item fade-in">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80"
+               alt="PPF Proteção Total" loading="lazy" />
+          <div class="portfolio__item-overlay">
+            <span>PPF — Proteção Total</span>
+          </div>
+        </div>
+        <div class="portfolio__item fade-in">
+          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80"
+               alt="Envelopamento Premium" loading="lazy" />
+          <div class="portfolio__item-overlay">
+            <span>Envelopamento Premium</span>
+          </div>
+        </div>
+        <div class="portfolio__item fade-in">
+          <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80"
+               alt="Vitrificação de Pintura" loading="lazy" />
+          <div class="portfolio__item-overlay">
+            <span>Vitrificação de Pintura</span>
+          </div>
+        </div>
+        <div class="portfolio__item fade-in">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80"
+               alt="Película Arquitetônica" loading="lazy" />
+          <div class="portfolio__item-overlay">
+            <span>Película Arquitetônica</span>
+          </div>
+        </div>
+        <div class="portfolio__item fade-in">
+          <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&q=80"
+               alt="Envelopamento Esportivo" loading="lazy" />
+          <div class="portfolio__item-overlay">
+            <span>Envelopamento Esportivo</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARCEIROS ========== -->
+  <section class="partners section" id="parceiros">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-eyebrow">Nossos parceiros</p>
+        <h2 class="section-title">Trabalhamos com as Melhores<br />Marcas do Mundo</h2>
+        <p class="section-sub">Produtos certificados e de comprovada eficiência para garantir o melhor resultado.</p>
+      </div>
+
+      <div class="partners__grid fade-in">
+
+        <!-- Parceiro 3M -->
+        <div class="partner-card">
+          <div class="partner-card__logo-wrap">
+            <div class="partner-card__logo-bg">
+              <img src="assets/logo-3m.png" alt="3M" class="partner-card__logo partner-card__logo--color" />
+            </div>
+          </div>
+          <p class="partner-card__desc">Líder mundial em tecnologia de películas e proteção de superfícies.</p>
+        </div>
+
+        <!-- Parceiro FilmStar -->
+        <div class="partner-card">
+          <div class="partner-card__logo-wrap">
+            <div class="partner-card__logo-bg">
+              <img src="assets/logo-filmstar.png" alt="FilmStar Window Film" class="partner-card__logo partner-card__logo--color" />
+            </div>
+          </div>
+          <p class="partner-card__desc">Especialista em películas de alta performance para aplicações exigentes.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTATO ========== -->
+  <section class="contact section" id="contato">
+    <div class="container">
+      <div class="contact__content fade-in">
+        <p class="section-eyebrow">Fale conosco</p>
+        <h2 class="contact__title">Solicite seu orçamento agora</h2>
+        <p class="contact__sub">
+          Atendimento rápido e personalizado. Nossa equipe está pronta para<br class="hide-mobile" />
+          apresentar a melhor solução para você.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento"
+           target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg">
+          <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+
+      <!-- Info cards -->
+      <div class="contact__info fade-in">
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Endereço</h4>
+            <!-- Substitua pelo endereço real -->
+            <p>A ser preenchido pelo cliente<br />Rio de Janeiro, RJ</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Telefone / WhatsApp</h4>
+            <p>+55 (21) 96431-5381</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div>
+            <h4>Horário de Funcionamento</h4>
+            <!-- Substitua pelo horário real -->
+            <p>A ser preenchido pelo cliente</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a href="#inicio" class="footer__logo header__logo">
+            <img src="assets/icon-header.png" alt="" class="header__icon" />
+            <span class="header__brand">
+              <span class="header__brand-name">BRYAN</span>
+              <span class="header__brand-sub">WINDOW FILMS</span>
+            </span>
+          </a>
+          <p class="footer__desc">
+            Especialistas em películas automotivas, arquitetônicas, PPF, envelopamento e vitrificação de pintura. Proteção e estilo com qualidade premium.
+          </p>
+          <!-- Redes sociais — substitua pelos links reais -->
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram" class="footer__social-link" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook" class="footer__social-link" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento"
+               aria-label="WhatsApp" class="footer__social-link" target="_blank" rel="noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links rápidos -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Links Rápidos</h4>
+          <ul class="footer__links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#parceiros">Parceiros</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <!-- Serviços -->
+        <div class="footer__col">
+          <h4 class="footer__col-title">Serviços</h4>
+          <ul class="footer__links">
+            <li><a href="#servicos">Películas Automotivas</a></li>
+            <li><a href="#servicos">Películas Arquitetônicas</a></li>
+            <li><a href="#servicos">PPF</a></li>
+            <li><a href="#servicos">Envelopamento</a></li>
+            <li><a href="#servicos">Vitrificação de Pintura</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 Bryan Window Films. Todos os direitos reservados.</p>
+        <p class="footer__bottom-sub">Desenvolvido com excelência</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== BOTÃO FLUTUANTE WHATSAPP ========== -->
+  <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento"
+     target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chamar no WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="whatsapp-float__tooltip">Fale conosco!</span>
+  </a>
+
+  <!-- ========== MODAIS DE SERVIÇOS ========== -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal()"></div>
+
+  <!-- Modal: Películas Automotivas -->
+  <div class="modal" id="modal-auto" role="dialog" aria-modal="true" aria-labelledby="modal-auto-title">
+    <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    <div class="modal__img-wrap">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Películas Automotivas" />
+    </div>
+    <div class="modal__body">
+      <span class="modal__badge">Serviço</span>
+      <h3 id="modal-auto-title" class="modal__title">Películas Automotivas</h3>
+      <p class="modal__desc">Nossas películas automotivas oferecem proteção solar avançada, reduzindo significativamente o calor interno e os raios UV nocivos. Além disso, proporcionam privacidade e segurança ao seu veículo.</p>
+      <h4 class="modal__benefits-title">Benefícios</h4>
+      <ul class="modal__benefits">
+        <li>Rejeição de até 99% dos raios UV</li>
+        <li>Redução de até 65% do calor interno</li>
+        <li>Privacidade e segurança aumentadas</li>
+        <li>Proteção dos bancos e acabamentos internos</li>
+        <li>Maior conforto térmico para motorista e passageiros</li>
+        <li>Aplicação profissional sem bolhas ou imperfeições</li>
+      </ul>
+      <h4 class="modal__benefits-title">Indicado para</h4>
+      <p class="modal__desc">Carros de passeio, SUVs, pickups, vans e qualquer veículo que necessite de proteção solar e privacidade.</p>
+      <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20Pel%C3%ADculas%20Automotivas"
+         target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg modal__cta">
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Solicitar Orçamento
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal: Películas Arquitetônicas -->
+  <div class="modal" id="modal-arq" role="dialog" aria-modal="true" aria-labelledby="modal-arq-title">
+    <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    <div class="modal__img-wrap">
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Películas Arquitetônicas" />
+    </div>
+    <div class="modal__body">
+      <span class="modal__badge">Serviço</span>
+      <h3 id="modal-arq-title" class="modal__title">Películas Arquitetônicas</h3>
+      <p class="modal__desc">Soluções de controle solar para residências e empresas. Nossas películas arquitetônicas melhoram o conforto térmico, reduzem custos de climatização e protegem móveis e pessoas dos raios UV.</p>
+      <h4 class="modal__benefits-title">Benefícios</h4>
+      <ul class="modal__benefits">
+        <li>Controle solar eficiente sem escurecer o ambiente</li>
+        <li>Proteção contra quebra de vidros (película de segurança)</li>
+        <li>Privacidade durante o dia sem perda de luminosidade</li>
+        <li>Redução de até 75% do calor solar</li>
+        <li>Proteção de móveis, cortinas e revestimentos</li>
+        <li>Economia de até 30% em energia com ar-condicionado</li>
+      </ul>
+      <h4 class="modal__benefits-title">Indicado para</h4>
+      <p class="modal__desc">Residências, escritórios, lojas, condomínios, hospitais e qualquer ambiente com vidros expostos ao sol.</p>
+      <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20Pel%C3%ADculas%20Arquitet%C3%B4nicas"
+         target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg modal__cta">
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Solicitar Orçamento
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal: PPF -->
+  <div class="modal" id="modal-ppf" role="dialog" aria-modal="true" aria-labelledby="modal-ppf-title">
+    <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    <div class="modal__img-wrap">
+      <img src="https://images.unsplash.com/photo-1617814076668-8dfc6fe4b304?w=800&q=80" alt="PPF" />
+    </div>
+    <div class="modal__body">
+      <span class="modal__badge">Serviço Premium</span>
+      <h3 id="modal-ppf-title" class="modal__title">PPF — Paint Protection Film</h3>
+      <p class="modal__desc">O PPF é uma película de poliuretano de alta resistência, praticamente invisível, que protege a pintura original do seu veículo contra impactos de pedras, riscos, insetos e outros agentes externos.</p>
+      <h4 class="modal__benefits-title">Benefícios</h4>
+      <ul class="modal__benefits">
+        <li>Proteção contra riscos superficiais e impactos de pedras</li>
+        <li>Auto-regeneração de microriscos com calor</li>
+        <li>Mantém o brilho e cor original da pintura</li>
+        <li>Praticamente invisível ao olho humano</li>
+        <li>Resistente a produtos químicos e insetos</li>
+        <li>Valoriza o veículo na revenda</li>
+      </ul>
+      <h4 class="modal__benefits-title">Indicado para</h4>
+      <p class="modal__desc">Veículos novos ou seminovos de alto valor, carros esportivos, clássicos e qualquer proprietário que deseje preservar a pintura original.</p>
+      <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20PPF%20-%20Paint%20Protection%20Film"
+         target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg modal__cta">
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Solicitar Orçamento
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal: Envelopamento -->
+  <div class="modal" id="modal-env" role="dialog" aria-modal="true" aria-labelledby="modal-env-title">
+    <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    <div class="modal__img-wrap">
+      <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800&q=80" alt="Envelopamento" />
+    </div>
+    <div class="modal__body">
+      <span class="modal__badge">Serviço</span>
+      <h3 id="modal-env-title" class="modal__title">Envelopamento Automotivo</h3>
+      <p class="modal__desc">O envelopamento transforma completamente a aparência do seu veículo com vinil de alta qualidade. Disponível em centenas de cores e acabamentos, incluindo fosco, brilhante, metálico, cromado e texturas especiais.</p>
+      <h4 class="modal__benefits-title">Benefícios</h4>
+      <ul class="modal__benefits">
+        <li>Transformação visual sem pintura permanente</li>
+        <li>Reversível — remove sem danificar a pintura original</li>
+        <li>Centenas de cores e acabamentos disponíveis</li>
+        <li>Protege a pintura original durante o período de uso</li>
+        <li>Custo menor que uma repintura total</li>
+        <li>Personalização total do visual do veículo</li>
+      </ul>
+      <h4 class="modal__benefits-title">Indicado para</h4>
+      <p class="modal__desc">Quem deseja mudar a cor do veículo, proteger a pintura original ou personalizar o visual sem comprometer a garantia de fábrica.</p>
+      <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20Envelopamento%20Automotivo"
+         target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg modal__cta">
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Solicitar Orçamento
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal: Vitrificação -->
+  <div class="modal" id="modal-vit" role="dialog" aria-modal="true" aria-labelledby="modal-vit-title">
+    <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    <div class="modal__img-wrap">
+      <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80" alt="Vitrificação" />
+    </div>
+    <div class="modal__body">
+      <span class="modal__badge">Serviço Premium</span>
+      <h3 id="modal-vit-title" class="modal__title">Vitrificação de Pintura</h3>
+      <p class="modal__desc">A vitrificação cria uma camada de proteção cerâmica sobre a pintura do veículo, proporcionando um brilho excepcional e proteção duradoura contra agentes externos, chuva ácida e contaminantes.</p>
+      <h4 class="modal__benefits-title">Benefícios</h4>
+      <ul class="modal__benefits">
+        <li>Brilho espelhado e duradouro</li>
+        <li>Proteção contra chuva ácida e contaminantes</li>
+        <li>Facilidade de limpeza (efeito lotus)</li>
+        <li>Proteção contra raios UV e oxidação</li>
+        <li>Durabilidade de 1 a 5 anos dependendo do produto</li>
+        <li>Valoriza o veículo na revenda</li>
+      </ul>
+      <h4 class="modal__benefits-title">Indicado para</h4>
+      <p class="modal__desc">Qualquer veículo que deseje manter a pintura sempre brilhante e protegida, com manutenção facilitada e valorização garantida.</p>
+      <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20Vitrifica%C3%A7%C3%A3o%20de%20Pintura"
+         target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg modal__cta">
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Solicitar Orçamento
+      </a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

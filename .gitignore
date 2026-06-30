@@ -1,0 +1,13 @@
+# Vídeo grande — hospedar em CDN/Vimeo para produção
+assets/hero-video.mp4
+
+# Arquivos temporários e desnecessários
+assets/logo-3m.webp
+assets/logo-3m-check.png
+assets/logo-banner.png
+assets/logo-hero.png
+assets/logo-icon.png
+assets/logo-white-h.png
+assets/logo-white.png
+assets/icon-square.png
+.DS_Store
