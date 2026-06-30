@@ -67,8 +67,15 @@
   <!-- ========== HERO ========== -->
   <section class="hero" id="inicio">
 
-    <!-- Vídeo de fundo via Vimeo Player API -->
-    <div class="hero__video-wrap" id="vimeo-wrap"></div>
+    <!-- Vídeo de fundo via Vimeo -->
+    <div class="hero__video-wrap">
+      <iframe class="hero__video"
+        src="https://player.vimeo.com/video/1205847710?background=1&autoplay=1&loop=1&muted=1&autopause=0&controls=0"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
 
     <!-- Fallback / overlay -->
     <div class="hero__overlay"></div>
@@ -598,42 +605,34 @@
   </div>
 
   <script src="js/main.js"></script>
-  <script src="https://player.vimeo.com/api/player.js"></script>
   <script>
+    // Redimensiona o iframe do Vimeo para cobrir o hero como background
     (function () {
-      var wrap = document.getElementById('vimeo-wrap');
+      var wrap = document.querySelector('.hero__video-wrap');
+      var iframe = wrap && wrap.querySelector('iframe');
+      if (!iframe) return;
 
       function coverResize() {
         var ww = wrap.offsetWidth;
         var wh = wrap.offsetHeight;
+        var ratio = 16 / 9;
         var iw, ih;
-        // Calcular dimensões para cobrir o container mantendo 16:9
-        if (ww / wh > 16 / 9) {
+        if (ww / wh > ratio) {
           iw = ww;
-          ih = ww * 9 / 16;
+          ih = ww / ratio;
         } else {
           ih = wh;
-          iw = wh * 16 / 9;
+          iw = wh * ratio;
         }
-        var iframe = wrap.querySelector('iframe');
-        if (iframe) {
-          iframe.style.width  = iw + 'px';
-          iframe.style.height = ih + 'px';
-          iframe.style.left   = ((ww - iw) / 2) + 'px';
-          iframe.style.top    = ((wh - ih) / 2) + 'px';
-        }
+        iframe.style.width  = iw + 'px';
+        iframe.style.height = ih + 'px';
+        iframe.style.position = 'absolute';
+        iframe.style.left = ((ww - iw) / 2) + 'px';
+        iframe.style.top  = ((wh - ih) / 2) + 'px';
+        iframe.style.border = 'none';
       }
 
-      var player = new Vimeo.Player(wrap, {
-        id: 1205847710,
-        background: true,
-        autoplay: true,
-        loop: true,
-        muted: true,
-        autopause: false
-      });
-
-      player.ready().then(coverResize);
+      coverResize();
       window.addEventListener('resize', coverResize);
     })();
   </script>
