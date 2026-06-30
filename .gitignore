@@ -1,5 +1,5 @@
 # Vídeo grande — hospedar em CDN/Vimeo para produção
-assets/hero-video.mp4
+# assets/hero-video.mp4 — agora gerenciado pelo Git LFS
 
 # Arquivos temporários e desnecessários
 assets/logo-3m.webp
