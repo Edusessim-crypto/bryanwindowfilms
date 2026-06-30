@@ -364,15 +364,26 @@ ul { list-style: none; }
   z-index: 0;
 }
 
-/* Video — visible em todos os dispositivos */
-.hero__video {
+/* Vimeo embed — cobre o hero como fundo */
+.hero__video-wrap {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   z-index: 1;
-  display: block;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__video {
+  position: absolute;
+  /* Oversized para simular object-fit: cover em iframe */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 177.78vh;  /* 16/9 × 100vh */
+  height: 56.25vw;  /* 9/16 × 100vw */
+  min-width: 100%;
+  min-height: 100%;
+  border: none;
 }
 
 /* Overlay */

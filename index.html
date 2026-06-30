@@ -67,10 +67,15 @@
   <!-- ========== HERO ========== -->
   <section class="hero" id="inicio">
 
-    <!-- Vídeo de fundo (desktop) — substitua hero-video.mp4 pelo arquivo do cliente -->
-    <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
-      <source src="assets/hero-video.mp4" type="video/mp4" />
-    </video>
+    <!-- Vídeo de fundo via Vimeo embed -->
+    <div class="hero__video-wrap">
+      <iframe class="hero__video"
+        src="https://player.vimeo.com/video/1024542187?background=1&autoplay=1&loop=1&muted=1&autopause=0"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+      </iframe>
+    </div>
 
     <!-- Fallback / overlay -->
     <div class="hero__overlay"></div>
