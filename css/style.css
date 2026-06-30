@@ -365,14 +365,26 @@ ul { list-style: none; }
 }
 
 /* Vídeo de fundo */
-.hero__video {
+.hero__video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__video-wrap iframe {
+  position: absolute;
+  border: none;
+}
+
+.hero__video-mobile {
+  display: none;
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1;
-  pointer-events: none;
 }
 
 /* Overlay */
@@ -1202,7 +1214,6 @@ body.modal-open { overflow: hidden; }
 /* Ensure no horizontal overflow */
 * { max-width: 100%; }
 img { max-width: 100%; }
-.hero__video { max-width: none; }
 
 /* Large desktop enhancements */
 @media (min-width: 1200px) {
