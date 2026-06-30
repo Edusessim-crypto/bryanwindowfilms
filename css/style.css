@@ -425,6 +425,10 @@ ul { list-style: none; }
     height: calc(var(--vh, 1vh) * 100);
     min-height: calc(var(--vh, 1vh) * 100);
     padding: 0;
+    align-items: center;
+  }
+  .hero__content {
+    padding-top: 68px; /* compensa o header fixo para centralizar visualmente */
   }
   .hero__scroll { display: none; }
   .hero__logo-img { height: 70px; max-width: 260px; }
