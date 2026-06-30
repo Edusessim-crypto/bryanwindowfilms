@@ -377,9 +377,11 @@ ul { list-style: none; }
   position: absolute;
   top: 50%;
   left: 50%;
-  /* Garante cobertura total em portrait (mobile) e landscape (desktop) */
-  width: max(100%, 177.78vh);
-  height: max(100%, 56.25vw);
+  /* Mobile portrait: altura da tela é maior que largura, então usamos vh como base */
+  width: 177.78vh;   /* 16/9 × 100vh — cobre sempre pela altura */
+  height: 100vh;
+  min-width: 100vw;  /* garante que nunca fique menor que a tela */
+  min-height: 56.25vw; /* 9/16 × 100vw */
   transform: translate(-50%, -50%);
   border: none;
 }
