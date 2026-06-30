@@ -67,15 +67,8 @@
   <!-- ========== HERO ========== -->
   <section class="hero" id="inicio">
 
-    <!-- Vídeo de fundo via Vimeo embed -->
-    <div class="hero__video-wrap">
-      <iframe class="hero__video"
-        src="https://player.vimeo.com/video/1205847710?background=1&autoplay=1&loop=1&muted=1&autopause=0"
-        frameborder="0"
-        allow="autoplay; fullscreen"
-        allowfullscreen>
-      </iframe>
-    </div>
+    <!-- Vídeo de fundo via Vimeo Player API -->
+    <div class="hero__video-wrap" id="vimeo-wrap"></div>
 
     <!-- Fallback / overlay -->
     <div class="hero__overlay"></div>
@@ -605,5 +598,44 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    (function () {
+      var wrap = document.getElementById('vimeo-wrap');
+
+      function coverResize() {
+        var ww = wrap.offsetWidth;
+        var wh = wrap.offsetHeight;
+        var iw, ih;
+        // Calcular dimensões para cobrir o container mantendo 16:9
+        if (ww / wh > 16 / 9) {
+          iw = ww;
+          ih = ww * 9 / 16;
+        } else {
+          ih = wh;
+          iw = wh * 16 / 9;
+        }
+        var iframe = wrap.querySelector('iframe');
+        if (iframe) {
+          iframe.style.width  = iw + 'px';
+          iframe.style.height = ih + 'px';
+          iframe.style.left   = ((ww - iw) / 2) + 'px';
+          iframe.style.top    = ((wh - ih) / 2) + 'px';
+        }
+      }
+
+      var player = new Vimeo.Player(wrap, {
+        id: 1205847710,
+        background: true,
+        autoplay: true,
+        loop: true,
+        muted: true,
+        autopause: false
+      });
+
+      player.ready().then(coverResize);
+      window.addEventListener('resize', coverResize);
+    })();
+  </script>
 </body>
 </html>

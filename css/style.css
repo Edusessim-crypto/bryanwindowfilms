@@ -364,7 +364,7 @@ ul { list-style: none; }
   z-index: 0;
 }
 
-/* Vimeo embed — cobre o hero como fundo */
+/* Vimeo Player API — wrapper cobre o hero inteiro */
 .hero__video-wrap {
   position: absolute;
   inset: 0;
@@ -373,16 +373,9 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
-.hero__video {
+/* iframe injetado pelo Vimeo Player API — dimensionado via JS */
+.hero__video-wrap iframe {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  /* Mobile portrait: altura da tela é maior que largura, então usamos vh como base */
-  width: 177.78vh;   /* 16/9 × 100vh — cobre sempre pela altura */
-  height: 100vh;
-  min-width: 100vw;  /* garante que nunca fique menor que a tela */
-  min-height: 56.25vw; /* 9/16 × 100vw */
-  transform: translate(-50%, -50%);
   border: none;
 }
 
