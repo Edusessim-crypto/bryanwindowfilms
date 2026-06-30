@@ -363,7 +363,7 @@ ul { list-style: none; }
   z-index: 0;
 }
 
-/* Vídeo de fundo: Vimeo iframe cobre o hero inteiro via CSS */
+/* Vídeo de fundo */
 .hero__video-wrap {
   position: absolute;
   inset: 0;
@@ -372,6 +372,16 @@ ul { list-style: none; }
   pointer-events: none;
 }
 
+/* MP4 mobile: cobre tudo via object-fit */
+.hero__video-mp4 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Vimeo desktop: iframe cobre tudo via CSS */
 .hero__video-wrap iframe {
   position: absolute;
   top: 50%;

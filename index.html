@@ -67,13 +67,14 @@
   <!-- ========== HERO ========== -->
   <section class="hero" id="inicio">
 
-    <!-- Vídeo de fundo: Vimeo embed (desktop + mobile) -->
-    <div class="hero__video-wrap">
-      <iframe src="https://player.vimeo.com/video/1205847710?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1"
-              allow="autoplay; fullscreen"
-              allowfullscreen
-              loading="eager">
-      </iframe>
+    <!-- Vídeo de fundo -->
+    <div class="hero__video-wrap" id="heroVideoWrap">
+      <!-- Mobile: MP4 local via <video> (autoplay garantido) -->
+      <video class="hero__video-mp4" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
+        <source src="assets/hero-video.mp4" type="video/mp4" />
+      </video>
+      <!-- Desktop: Vimeo iframe (injetado via JS apenas em telas largas) -->
+      <div id="vimeoSlot"></div>
     </div>
 
     <!-- Fallback / overlay -->
@@ -605,12 +606,26 @@
 
   <script src="js/main.js"></script>
   <script>
-    // Corrige altura real da viewport no mobile (resolve barra do Safari/Chrome)
+    // Altura real da viewport (resolve barra do Safari/Chrome mobile)
     function setVH() {
       document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
     }
     setVH();
     window.addEventListener('resize', setVH);
+
+    // Desktop: injeta Vimeo iframe apenas em telas >= 768px
+    if (window.innerWidth >= 768) {
+      var mp4 = document.querySelector('.hero__video-mp4');
+      if (mp4) mp4.style.display = 'none';
+
+      var slot = document.getElementById('vimeoSlot');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://player.vimeo.com/video/1205847710?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1';
+      iframe.allow = 'autoplay; fullscreen';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('loading', 'eager');
+      slot.appendChild(iframe);
+    }
   </script>
 </body>
 </html>
