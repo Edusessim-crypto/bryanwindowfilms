@@ -377,11 +377,8 @@ ul { list-style: none; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Garante cobertura total: maior que container em qualquer proporção */
-  width: 177.78vh;   /* 16/9 * 100vh */
-  height: 100vh;
-  min-width: 100%;
-  min-height: 56.25vw; /* 9/16 * 100vw */
+  width: max(100%, 177.78vh);
+  height: max(100%, 56.25vw);
   border: none;
 }
 
