@@ -67,12 +67,13 @@
   <!-- ========== HERO ========== -->
   <section class="hero" id="inicio">
 
-    <!-- Vídeo de fundo: Vimeo no desktop, MP4 no mobile -->
-    <div class="hero__video-wrap" id="heroVideoWrap">
-      <div id="vimeoPlayer"></div>
-      <video id="heroVideoMobile" class="hero__video-mobile" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
-        <source src="assets/hero-video.mp4" type="video/mp4" />
-      </video>
+    <!-- Vídeo de fundo: Vimeo embed (desktop + mobile) -->
+    <div class="hero__video-wrap">
+      <iframe src="https://player.vimeo.com/video/1205847710?background=1&autoplay=1&muted=1&loop=1&autopause=0&dnt=1"
+              allow="autoplay; fullscreen"
+              allowfullscreen
+              loading="eager">
+      </iframe>
     </div>
 
     <!-- Fallback / overlay -->
@@ -603,68 +604,5 @@
   </div>
 
   <script src="js/main.js"></script>
-  <script>
-    (function () {
-      var isMobile = window.matchMedia('(max-width: 767px)').matches || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      var wrap = document.getElementById('heroVideoWrap');
-      var mobileVideo = document.getElementById('heroVideoMobile');
-
-      if (isMobile) {
-        // Mobile: usa o MP4 local via <video>
-        document.getElementById('vimeoPlayer').style.display = 'none';
-        mobileVideo.style.display = 'block';
-      } else {
-        // Desktop: usa Vimeo embed
-        mobileVideo.style.display = 'none';
-
-        var script = document.createElement('script');
-        script.src = 'https://player.vimeo.com/api/player.js';
-        script.onload = function () {
-          var player = new Vimeo.Player('vimeoPlayer', {
-            id: 1205847710,
-            background: true,
-            autoplay: true,
-            muted: true,
-            loop: true,
-            responsive: false,
-            width: wrap.offsetWidth || window.innerWidth
-          });
-
-          var iframe = null;
-
-          player.ready().then(function () {
-            iframe = wrap.querySelector('iframe');
-            if (iframe) {
-              iframe.style.border = 'none';
-              coverResize();
-            }
-          });
-
-          function coverResize() {
-            if (!iframe) return;
-            var ww = wrap.offsetWidth;
-            var wh = wrap.offsetHeight;
-            var ratio = 16 / 9;
-            var iw, ih;
-            if (ww / wh >= ratio) {
-              iw = ww;
-              ih = Math.round(ww / ratio);
-            } else {
-              ih = wh;
-              iw = Math.round(wh * ratio);
-            }
-            iframe.style.width    = iw + 'px';
-            iframe.style.height   = ih + 'px';
-            iframe.style.position = 'absolute';
-            iframe.style.left     = Math.round((ww - iw) / 2) + 'px';
-            iframe.style.top      = Math.round((wh - ih) / 2) + 'px';
-          }
-
-          window.addEventListener('resize', coverResize);
-        };
-        document.head.appendChild(script);
-      }
-    })();
-  </script>
 </body>
 </html>
