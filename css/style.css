@@ -375,12 +375,11 @@ ul { list-style: none; }
 
 .hero__video {
   position: absolute;
-  /* Oversized para simular object-fit: cover em iframe */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 177.78vh;  /* 16/9 × 100vh */
-  height: 56.25vw;  /* 9/16 × 100vw */
+  width: 177.78vh;
+  height: 56.25vw;
   min-width: 100%;
   min-height: 100%;
   border: none;
