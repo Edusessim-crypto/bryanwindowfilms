@@ -33,7 +33,7 @@
         <a href="#inicio" class="header__nav-link">Início</a>
         <a href="#servicos" class="header__nav-link">Serviços</a>
         <a href="#projetos" class="header__nav-link">Projetos</a>
-        <a href="#parceiros" class="header__nav-link">Parceiros</a>
+        <a href="#quem-somos" class="header__nav-link">Quem Somos</a>
         <a href="#contato" class="header__nav-link">Contato</a>
       </nav>
 
@@ -55,7 +55,7 @@
       <a href="#inicio" class="mobile-nav__link">Início</a>
       <a href="#servicos" class="mobile-nav__link">Serviços</a>
       <a href="#projetos" class="mobile-nav__link">Projetos</a>
-      <a href="#parceiros" class="mobile-nav__link">Parceiros</a>
+      <a href="#quem-somos" class="mobile-nav__link">Quem Somos</a>
       <a href="#contato" class="mobile-nav__link">Contato</a>
       <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20estou%20em%20seu%20site%20e%20preciso%20de%20atendimento"
          target="_blank" rel="noopener" class="btn btn--whatsapp mobile-nav__cta">
@@ -112,105 +112,118 @@
         <h2 class="section-title">Soluções Completas em<br />Proteção e Estética</h2>
         <p class="section-sub">Cada serviço pensado para preservar, proteger e valorizar seu patrimônio.</p>
       </div>
+    </div>
 
-      <div class="services__grid">
+    <!-- Carrossel horizontal de serviços -->
+    <div class="services-carousel fade-in">
+      <button class="carousel-arrow carousel-arrow--prev" id="carouselPrev" aria-label="Serviço anterior">‹</button>
+      <button class="carousel-arrow carousel-arrow--next" id="carouselNext" aria-label="Próximo serviço">›</button>
+
+      <div class="services-carousel__track" id="carouselTrack">
 
         <!-- Card 1 — Películas Automotivas -->
-        <article class="service-card fade-in" data-service="auto">
-          <div class="service-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
-                 alt="Películas Automotivas" class="service-card__img" loading="lazy" />
-            <div class="service-card__overlay"></div>
+        <article class="service-slide" data-service="auto" onclick="openModal('auto')">
+          <div class="service-slide__img-wrap">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
+                 alt="Películas Automotivas" class="service-slide__img" loading="lazy"
+                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
           </div>
-          <div class="service-card__body">
-            <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M19 17H5l-2-6h18l-2 6z"/><path d="M5 17l-1 4h16l-1-4M8 11V7a4 4 0 018 0v4"/>
-              </svg>
-            </div>
-            <h3 class="service-card__title">Películas Automotivas</h3>
-            <p class="service-card__desc">Proteção solar, privacidade e conforto térmico para o seu veículo.</p>
-            <button class="service-card__btn" onclick="openModal('auto')">Ver detalhes</button>
+          <div class="service-slide__body">
+            <h3 class="service-slide__title">Películas Automotivas</h3>
+            <p class="service-slide__desc">Conforto térmico, privacidade e proteção contra raios UV para o seu veículo.</p>
+            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('auto')">Saiba Mais</button>
           </div>
         </article>
 
-        <!-- Card 2 — Películas Arquitetônicas -->
-        <article class="service-card fade-in" data-service="arq">
-          <div class="service-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80"
-                 alt="Películas Arquitetônicas" class="service-card__img" loading="lazy" />
-            <div class="service-card__overlay"></div>
+        <!-- Card 2 — Película Antivandalismo -->
+        <article class="service-slide" data-service="antivandalismo" onclick="openModal('antivandalismo')">
+          <div class="service-slide__img-wrap">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&q=80"
+                 alt="Película Antivandalismo" class="service-slide__img" loading="lazy"
+                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
           </div>
-          <div class="service-card__body">
-            <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 3v18M16 3v18M2 9h20M2 15h20"/>
-              </svg>
-            </div>
-            <h3 class="service-card__title">Películas Arquitetônicas</h3>
-            <p class="service-card__desc">Controle solar, segurança e privacidade para residências e empresas.</p>
-            <button class="service-card__btn" onclick="openModal('arq')">Ver detalhes</button>
+          <div class="service-slide__body">
+            <h3 class="service-slide__title">Película Antivandalismo</h3>
+            <p class="service-slide__desc">Camadas de alta resistência que reforçam o vidro contra arrombamentos, impactos e estilhaçamento.</p>
+            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('antivandalismo')">Saiba Mais</button>
           </div>
         </article>
 
-        <!-- Card 3 — PPF -->
-        <article class="service-card fade-in" data-service="ppf">
-          <div class="service-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1617814076668-8dfc6fe4b304?w=600&q=80"
-                 alt="PPF Paint Protection Film" class="service-card__img" loading="lazy" />
-            <div class="service-card__overlay"></div>
+        <!-- Card 3 — Película Antitrinco -->
+        <article class="service-slide" data-service="antitrinco" onclick="openModal('antitrinco')">
+          <div class="service-slide__img-wrap">
+            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=700&q=80"
+                 alt="Película Antitrinco" class="service-slide__img" loading="lazy"
+                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
           </div>
-          <div class="service-card__body">
-            <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <h3 class="service-card__title">PPF — Paint Protection Film</h3>
-            <p class="service-card__desc">Proteção invisível contra riscos, pedras e agentes externos.</p>
-            <button class="service-card__btn" onclick="openModal('ppf')">Ver detalhes</button>
+          <div class="service-slide__body">
+            <h3 class="service-slide__title">Película Antitrinco</h3>
+            <p class="service-slide__desc">Proteção específica para o para-brisa contra trincas causadas por pedras e detritos.</p>
+            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('antitrinco')">Saiba Mais</button>
           </div>
         </article>
 
-        <!-- Card 4 — Envelopamento -->
-        <article class="service-card fade-in" data-service="env">
-          <div class="service-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=600&q=80"
-                 alt="Envelopamento Automotivo" class="service-card__img" loading="lazy" />
-            <div class="service-card__overlay"></div>
+        <!-- Card 4 — Películas Arquitetônicas -->
+        <article class="service-slide" data-service="arq" onclick="openModal('arq')">
+          <div class="service-slide__img-wrap">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80"
+                 alt="Películas Arquitetônicas" class="service-slide__img" loading="lazy"
+                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
           </div>
-          <div class="service-card__body">
-            <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-              </svg>
-            </div>
-            <h3 class="service-card__title">Envelopamento</h3>
-            <p class="service-card__desc">Transformação visual do veículo com vinil de alta qualidade.</p>
-            <button class="service-card__btn" onclick="openModal('env')">Ver detalhes</button>
+          <div class="service-slide__body">
+            <h3 class="service-slide__title">Películas Arquitetônicas</h3>
+            <p class="service-slide__desc">Controle solar, segurança e privacidade para residências e empresas.</p>
+            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('arq')">Saiba Mais</button>
           </div>
         </article>
 
-        <!-- Card 5 — Vitrificação -->
-        <article class="service-card fade-in" data-service="vit">
-          <div class="service-card__img-wrap">
-            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80"
-                 alt="Vitrificação de Pintura" class="service-card__img" loading="lazy" />
-            <div class="service-card__overlay"></div>
+        <!-- Card 5 — PPF -->
+        <article class="service-slide" data-service="ppf" onclick="openModal('ppf')">
+          <div class="service-slide__img-wrap">
+            <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=700&q=80"
+                 alt="PPF Paint Protection Film" class="service-slide__img" loading="lazy"
+                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
           </div>
-          <div class="service-card__body">
-            <div class="service-card__icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-              </svg>
-            </div>
-            <h3 class="service-card__title">Vitrificação de Pintura</h3>
-            <p class="service-card__desc">Camada protetora que preserva o brilho e a integridade da pintura.</p>
-            <button class="service-card__btn" onclick="openModal('vit')">Ver detalhes</button>
+          <div class="service-slide__body">
+            <h3 class="service-slide__title">PPF (Paint Protection Film)</h3>
+            <p class="service-slide__desc">Película transparente que protege a pintura contra riscos, pedras e agentes externos.</p>
+            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('ppf')">Saiba Mais</button>
+          </div>
+        </article>
+
+        <!-- Card 6 — Envelopamento -->
+        <article class="service-slide" data-service="env" onclick="openModal('env')">
+          <div class="service-slide__img-wrap">
+            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=700&q=80"
+                 alt="Envelopamento Automotivo" class="service-slide__img" loading="lazy"
+                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
+          </div>
+          <div class="service-slide__body">
+            <h3 class="service-slide__title">Envelopamento</h3>
+            <p class="service-slide__desc">Transformação visual do veículo com vinil de alta qualidade e acabamento impecável.</p>
+            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('env')">Saiba Mais</button>
+          </div>
+        </article>
+
+        <!-- Card 7 — Vitrificação -->
+        <article class="service-slide" data-service="vit" onclick="openModal('vit')">
+          <div class="service-slide__img-wrap">
+            <img src="https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=700&q=80"
+                 alt="Vitrificação de Pintura" class="service-slide__img" loading="lazy"
+                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
+          </div>
+          <div class="service-slide__body">
+            <h3 class="service-slide__title">Vitrificação de Pintura</h3>
+            <p class="service-slide__desc">Camada protetora que preserva o brilho e a integridade da pintura por mais tempo.</p>
+            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('vit')">Saiba Mais</button>
           </div>
         </article>
 
       </div>
+
+      <p class="services-carousel__hint">Arraste para ver mais →</p>
+
+      <div class="services-carousel__dots" id="carouselDots"></div>
     </div>
   </section>
 
@@ -270,37 +283,35 @@
     </div>
   </section>
 
-  <!-- ========== PARCEIROS ========== -->
-  <section class="partners section" id="parceiros">
+  <!-- ========== QUEM SOMOS ========== -->
+  <section class="about section" id="quem-somos">
     <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-eyebrow">Nossos parceiros</p>
-        <h2 class="section-title">Trabalhamos com as Melhores<br />Marcas do Mundo</h2>
-        <p class="section-sub">Produtos certificados e de comprovada eficiência para garantir o melhor resultado.</p>
-      </div>
-
-      <div class="partners__grid fade-in">
-
-        <!-- Parceiro 3M -->
-        <div class="partner-card">
-          <div class="partner-card__logo-wrap">
-            <div class="partner-card__logo-bg">
-              <img src="assets/logo-3m.png" alt="3M" class="partner-card__logo partner-card__logo--color" />
-            </div>
+      <div class="about__grid">
+        <div class="about__photo-wrap fade-in">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=80"
+               alt="Bryan Sampaio — Fundador da Bryan Window Films" class="about__photo" loading="lazy" />
+          <!-- Placeholder temporário: substituir pela foto real do proprietário antes da publicação -->
+          <div class="about__caption">
+            <span class="about__caption-name">Bryan Sampaio</span>
+            <span class="about__caption-role">Fundador — Bryan Window Films</span>
           </div>
-          <p class="partner-card__desc">Líder mundial em tecnologia de películas e proteção de superfícies.</p>
         </div>
 
-        <!-- Parceiro FilmStar -->
-        <div class="partner-card">
-          <div class="partner-card__logo-wrap">
-            <div class="partner-card__logo-bg">
-              <img src="assets/logo-filmstar.png" alt="FilmStar Window Film" class="partner-card__logo partner-card__logo--color" />
-            </div>
-          </div>
-          <p class="partner-card__desc">Especialista em películas de alta performance para aplicações exigentes.</p>
+        <div class="about__content fade-in">
+          <p class="section-eyebrow">Quem somos</p>
+          <h2 class="section-title about__title">Experiência e Paixão por<br />Proteção Automotiva</h2>
+          <p class="about__text">
+            Há anos no mercado, a Bryan Window Films nasceu do compromisso em oferecer o que há de mais moderno em proteção
+            veicular e arquitetônica. Nossa trajetória é construída sobre atendimento personalizado, atenção aos detalhes
+            e a busca constante pela excelência técnica em cada serviço realizado.
+          </p>
+          <p class="about__text">
+            Trabalhamos com marcas reconhecidas mundialmente e uma equipe especializada, sempre priorizando a satisfação
+            e a confiança de cada cliente. Mais do que aplicar películas e proteções, entregamos tranquilidade e
+            valorização do seu patrimônio.
+          </p>
+          <!-- Texto institucional genérico — ajustar com informações reais do cliente -->
         </div>
-
       </div>
     </div>
   </section>
@@ -366,6 +377,57 @@
     </div>
   </section>
 
+  <!-- ========== NOSSAS LOJAS ========== -->
+  <section class="stores section" id="lojas">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-eyebrow">Onde estamos</p>
+        <h2 class="section-title">Nossas Lojas</h2>
+        <p class="section-sub">Visite uma de nossas unidades ou trace a rota até nós.</p>
+      </div>
+
+      <div class="stores__grid fade-in">
+
+        <!-- Loja 1 -->
+        <div class="store-card">
+          <div class="store-card__map">
+            <!-- Placeholder: cliente irá fornecer a URL de embed real do Google Maps -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117542.15!2d-43.2096!3d-22.9068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU0JzI0LjUiUyA0M8KwMTInMzQuNiJX!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Mapa — Loja Unidade 1"></iframe>
+          </div>
+          <div class="store-card__body">
+            <h3 class="store-card__name">Unidade 1 — Nome da Loja</h3>
+            <p class="store-card__address">Endereço a ser preenchido pelo cliente<br />Rio de Janeiro, RJ</p>
+            <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="store-card__link">
+              Ver rota / Abrir no Google Maps →
+            </a>
+          </div>
+        </div>
+
+        <!-- Loja 2 -->
+        <div class="store-card">
+          <div class="store-card__map">
+            <!-- Placeholder: cliente irá fornecer a URL de embed real do Google Maps -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117542.15!2d-43.2096!3d-22.9519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU3JzA2LjgiUyA0M8KwMTInMzQuNiJX!5e0!3m2!1spt-BR!2sbr!4v1700000000001"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Mapa — Loja Unidade 2"></iframe>
+          </div>
+          <div class="store-card__body">
+            <h3 class="store-card__name">Unidade 2 — Nome da Loja</h3>
+            <p class="store-card__address">Endereço a ser preenchido pelo cliente<br />Rio de Janeiro, RJ</p>
+            <a href="https://www.google.com/maps" target="_blank" rel="noopener" class="store-card__link">
+              Ver rota / Abrir no Google Maps →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="container">
@@ -411,7 +473,7 @@
             <li><a href="#inicio">Início</a></li>
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#parceiros">Parceiros</a></li>
+            <li><a href="#quem-somos">Quem Somos</a></li>
             <li><a href="#contato">Contato</a></li>
           </ul>
         </div>
@@ -428,6 +490,13 @@
           </ul>
         </div>
 
+      </div>
+
+      <!-- Selo de credencial 3M -->
+      <div class="footer__credential">
+        <!-- Placeholder: substituir por assets/logo-3m-autorizado.png (versão oficial monocromática para fundo escuro do kit de marca Aplicador Autorizado 3M) -->
+        <img src="assets/logo-3m.png" alt="3M" class="footer__credential-logo" loading="lazy" />
+        <p class="footer__credential-text">Aplicador Autorizado 3M</p>
       </div>
 
       <div class="footer__bottom">
@@ -453,7 +522,8 @@
   <div class="modal" id="modal-auto" role="dialog" aria-modal="true" aria-labelledby="modal-auto-title">
     <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
     <div class="modal__img-wrap">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Películas Automotivas" />
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Películas Automotivas"
+           onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
     </div>
     <div class="modal__body">
       <span class="modal__badge">Serviço</span>
@@ -480,11 +550,76 @@
     </div>
   </div>
 
+  <!-- Modal: Película Antivandalismo -->
+  <div class="modal" id="modal-antivandalismo" role="dialog" aria-modal="true" aria-labelledby="modal-antivandalismo-title">
+    <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    <div class="modal__img-wrap">
+      <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80" alt="Película Antivandalismo"
+           onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
+    </div>
+    <div class="modal__body">
+      <span class="modal__badge">Serviço</span>
+      <h3 id="modal-antivandalismo-title" class="modal__title">Película Antivandalismo</h3>
+      <p class="modal__desc">A película antivandalismo é composta por camadas de alta resistência que reforçam o vidro, dificultando arrombamentos, impactos e estilhaçamento em caso de quebra, aumentando a segurança de veículos e ambientes.</p>
+      <h4 class="modal__benefits-title">Benefícios</h4>
+      <ul class="modal__benefits">
+        <li>Reforço estrutural do vidro contra impactos</li>
+        <li>Retarda arrombamentos e tentativas de invasão</li>
+        <li>Reduz o estilhaçamento em caso de quebra</li>
+        <li>Aumenta a segurança de ocupantes e patrimônio</li>
+        <li>Compatível com películas de controle solar</li>
+        <li>Aplicação profissional com garantia</li>
+      </ul>
+      <h4 class="modal__benefits-title">Indicado para</h4>
+      <p class="modal__desc">Veículos, residências, comércios e empresas que buscam uma camada extra de segurança contra arrombamentos e vandalismo.</p>
+      <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20Pel%C3%ADcula%20Antivandalismo"
+         target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg modal__cta">
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Solicitar Orçamento
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal: Película Antitrinco -->
+  <div class="modal" id="modal-antitrinco" role="dialog" aria-modal="true" aria-labelledby="modal-antitrinco-title">
+    <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
+    <div class="modal__img-wrap">
+      <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80" alt="Película Antitrinco"
+           onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
+    </div>
+    <div class="modal__body">
+      <span class="modal__badge">Serviço</span>
+      <h3 id="modal-antitrinco-title" class="modal__title">Película Antitrinco</h3>
+      <p class="modal__desc">Desenvolvida especificamente para o para-brisa, a película antitrinco protege o vidro contra trincas causadas por impacto de pedras, detritos e pequenos objetos arremessados durante o trajeto.</p>
+      <h4 class="modal__benefits-title">Benefícios</h4>
+      <ul class="modal__benefits">
+        <li>Proteção específica contra impacto de pedras e detritos</li>
+        <li>Reduz o risco de propagação de trincas</li>
+        <li>Preserva a integridade do para-brisa original</li>
+        <li>Transparência total, sem interferir na visibilidade</li>
+        <li>Evita gastos frequentes com troca de para-brisa</li>
+        <li>Aplicação profissional e precisa</li>
+      </ul>
+      <h4 class="modal__benefits-title">Indicado para</h4>
+      <p class="modal__desc">Veículos que rodam com frequência em rodovias e estradas, onde o risco de impacto de pedras e detritos é maior.</p>
+      <a href="https://api.whatsapp.com/send?phone=5521964315381&text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20para%20Pel%C3%ADcula%20Antitrinco"
+         target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg modal__cta">
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Solicitar Orçamento
+      </a>
+    </div>
+  </div>
+
   <!-- Modal: Películas Arquitetônicas -->
   <div class="modal" id="modal-arq" role="dialog" aria-modal="true" aria-labelledby="modal-arq-title">
     <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
     <div class="modal__img-wrap">
-      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Películas Arquitetônicas" />
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Películas Arquitetônicas"
+           onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
     </div>
     <div class="modal__body">
       <span class="modal__badge">Serviço</span>
@@ -515,7 +650,8 @@
   <div class="modal" id="modal-ppf" role="dialog" aria-modal="true" aria-labelledby="modal-ppf-title">
     <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
     <div class="modal__img-wrap">
-      <img src="https://images.unsplash.com/photo-1617814076668-8dfc6fe4b304?w=800&q=80" alt="PPF" />
+      <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80" alt="PPF"
+           onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
     </div>
     <div class="modal__body">
       <span class="modal__badge">Serviço Premium</span>
@@ -546,7 +682,8 @@
   <div class="modal" id="modal-env" role="dialog" aria-modal="true" aria-labelledby="modal-env-title">
     <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
     <div class="modal__img-wrap">
-      <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800&q=80" alt="Envelopamento" />
+      <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800&q=80" alt="Envelopamento"
+           onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
     </div>
     <div class="modal__body">
       <span class="modal__badge">Serviço</span>
@@ -577,7 +714,8 @@
   <div class="modal" id="modal-vit" role="dialog" aria-modal="true" aria-labelledby="modal-vit-title">
     <button class="modal__close" onclick="closeModal()" aria-label="Fechar">✕</button>
     <div class="modal__img-wrap">
-      <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80" alt="Vitrificação" />
+      <img src="https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=800&q=80" alt="Vitrificação"
+           onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
     </div>
     <div class="modal__body">
       <span class="modal__badge">Serviço Premium</span>
