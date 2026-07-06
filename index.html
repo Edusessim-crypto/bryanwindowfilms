@@ -122,100 +122,107 @@
       <div class="services-carousel__track" id="carouselTrack">
 
         <!-- Card 1 — Películas Automotivas -->
-        <article class="service-slide" data-service="auto" onclick="openModal('auto')">
-          <div class="service-slide__img-wrap">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
-                 alt="Películas Automotivas" class="service-slide__img" loading="lazy"
-                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
-          </div>
-          <div class="service-slide__body">
-            <h3 class="service-slide__title">Películas Automotivas</h3>
-            <p class="service-slide__desc">Conforto térmico, privacidade e proteção contra raios UV para o seu veículo.</p>
-            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('auto')">Saiba Mais</button>
+        <article class="service-slide" data-service="auto">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
+               alt="Películas Automotivas" class="service-slide__img" loading="lazy"
+               onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
+          <div class="service-slide__overlay"></div>
+          <div class="service-slide__content">
+            <div class="service-slide__top">
+              <h3 class="service-slide__title">Películas Automotivas</h3>
+              <p class="service-slide__desc">Conforto térmico, privacidade e proteção contra raios UV para o seu veículo.</p>
+            </div>
+            <button class="service-slide__btn" onclick="openModal('auto')">Saiba Mais <span class="service-slide__btn-arrow">→</span></button>
           </div>
         </article>
 
         <!-- Card 2 — Película Antivandalismo -->
-        <article class="service-slide" data-service="antivandalismo" onclick="openModal('antivandalismo')">
-          <div class="service-slide__img-wrap">
-            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&q=80"
-                 alt="Película Antivandalismo" class="service-slide__img" loading="lazy"
-                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
-          </div>
-          <div class="service-slide__body">
-            <h3 class="service-slide__title">Película Antivandalismo</h3>
-            <p class="service-slide__desc">Camadas de alta resistência que reforçam o vidro contra arrombamentos, impactos e estilhaçamento.</p>
-            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('antivandalismo')">Saiba Mais</button>
+        <article class="service-slide" data-service="antivandalismo">
+          <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&q=80"
+               alt="Película Antivandalismo" class="service-slide__img" loading="lazy"
+               onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
+          <div class="service-slide__overlay"></div>
+          <div class="service-slide__content">
+            <div class="service-slide__top">
+              <h3 class="service-slide__title">Película Antivandalismo</h3>
+              <p class="service-slide__desc">Resistência contra arrombamentos, impactos e estilhaçamento do vidro.</p>
+            </div>
+            <button class="service-slide__btn" onclick="openModal('antivandalismo')">Saiba Mais <span class="service-slide__btn-arrow">→</span></button>
           </div>
         </article>
 
         <!-- Card 3 — Película Antitrinco -->
-        <article class="service-slide" data-service="antitrinco" onclick="openModal('antitrinco')">
-          <div class="service-slide__img-wrap">
-            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=700&q=80"
-                 alt="Película Antitrinco" class="service-slide__img" loading="lazy"
-                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
-          </div>
-          <div class="service-slide__body">
-            <h3 class="service-slide__title">Película Antitrinco</h3>
-            <p class="service-slide__desc">Proteção específica para o para-brisa contra trincas causadas por pedras e detritos.</p>
-            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('antitrinco')">Saiba Mais</button>
+        <article class="service-slide" data-service="antitrinco">
+          <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=700&q=80"
+               alt="Película Antitrinco" class="service-slide__img" loading="lazy"
+               onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
+          <div class="service-slide__overlay"></div>
+          <div class="service-slide__content">
+            <div class="service-slide__top">
+              <h3 class="service-slide__title">Película Antitrinco</h3>
+              <p class="service-slide__desc">Proteção do para-brisa contra trincas causadas por pedras e detritos.</p>
+            </div>
+            <button class="service-slide__btn" onclick="openModal('antitrinco')">Saiba Mais <span class="service-slide__btn-arrow">→</span></button>
           </div>
         </article>
 
         <!-- Card 4 — Películas Arquitetônicas -->
-        <article class="service-slide" data-service="arq" onclick="openModal('arq')">
-          <div class="service-slide__img-wrap">
-            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80"
-                 alt="Películas Arquitetônicas" class="service-slide__img" loading="lazy"
-                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
-          </div>
-          <div class="service-slide__body">
-            <h3 class="service-slide__title">Películas Arquitetônicas</h3>
-            <p class="service-slide__desc">Controle solar, segurança e privacidade para residências e empresas.</p>
-            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('arq')">Saiba Mais</button>
+        <article class="service-slide" data-service="arq">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80"
+               alt="Películas Arquitetônicas" class="service-slide__img" loading="lazy"
+               onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
+          <div class="service-slide__overlay"></div>
+          <div class="service-slide__content">
+            <div class="service-slide__top">
+              <h3 class="service-slide__title">Películas Arquitetônicas</h3>
+              <p class="service-slide__desc">Controle solar, segurança e privacidade para residências e empresas.</p>
+            </div>
+            <button class="service-slide__btn" onclick="openModal('arq')">Saiba Mais <span class="service-slide__btn-arrow">→</span></button>
           </div>
         </article>
 
         <!-- Card 5 — PPF -->
-        <article class="service-slide" data-service="ppf" onclick="openModal('ppf')">
-          <div class="service-slide__img-wrap">
-            <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=700&q=80"
-                 alt="PPF Paint Protection Film" class="service-slide__img" loading="lazy"
-                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
-          </div>
-          <div class="service-slide__body">
-            <h3 class="service-slide__title">PPF (Paint Protection Film)</h3>
-            <p class="service-slide__desc">Película transparente que protege a pintura contra riscos, pedras e agentes externos.</p>
-            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('ppf')">Saiba Mais</button>
+        <article class="service-slide" data-service="ppf">
+          <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=700&q=80"
+               alt="PPF Paint Protection Film" class="service-slide__img" loading="lazy"
+               onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
+          <div class="service-slide__overlay"></div>
+          <div class="service-slide__content">
+            <div class="service-slide__top">
+              <h3 class="service-slide__title">PPF (Paint Protection Film)</h3>
+              <p class="service-slide__desc">Proteção transparente da pintura contra riscos, pedras e detritos.</p>
+            </div>
+            <button class="service-slide__btn" onclick="openModal('ppf')">Saiba Mais <span class="service-slide__btn-arrow">→</span></button>
           </div>
         </article>
 
         <!-- Card 6 — Envelopamento -->
-        <article class="service-slide" data-service="env" onclick="openModal('env')">
-          <div class="service-slide__img-wrap">
-            <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=700&q=80"
-                 alt="Envelopamento Automotivo" class="service-slide__img" loading="lazy"
-                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
-          </div>
-          <div class="service-slide__body">
-            <h3 class="service-slide__title">Envelopamento</h3>
-            <p class="service-slide__desc">Transformação visual do veículo com vinil de alta qualidade e acabamento impecável.</p>
-            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('env')">Saiba Mais</button>
+        <article class="service-slide" data-service="env">
+          <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=700&q=80"
+               alt="Envelopamento Automotivo" class="service-slide__img" loading="lazy"
+               onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
+          <div class="service-slide__overlay"></div>
+          <div class="service-slide__content">
+            <div class="service-slide__top">
+              <h3 class="service-slide__title">Envelopamento</h3>
+              <p class="service-slide__desc">Transformação visual do veículo com vinil de alta qualidade.</p>
+            </div>
+            <button class="service-slide__btn" onclick="openModal('env')">Saiba Mais <span class="service-slide__btn-arrow">→</span></button>
           </div>
         </article>
 
         <!-- Card 7 — Vitrificação -->
-        <article class="service-slide" data-service="vit" onclick="openModal('vit')">
-          <div class="service-slide__img-wrap">
-            <img src="https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=700&q=80"
-                 alt="Vitrificação de Pintura" class="service-slide__img" loading="lazy"
-                 onerror="this.closest('.service-slide__img-wrap').classList.add('img-fallback'); this.remove();" />
-          </div>
-          <div class="service-slide__body">
-            <h3 class="service-slide__title">Vitrificação de Pintura</h3>
-            <p class="service-slide__desc">Camada protetora que preserva o brilho e a integridade da pintura por mais tempo.</p>
-            <button class="service-slide__btn" onclick="event.stopPropagation(); openModal('vit')">Saiba Mais</button>
+        <article class="service-slide" data-service="vit">
+          <img src="https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=700&q=80"
+               alt="Vitrificação de Pintura" class="service-slide__img" loading="lazy"
+               onerror="this.parentElement.classList.add('img-fallback'); this.remove();" />
+          <div class="service-slide__overlay"></div>
+          <div class="service-slide__content">
+            <div class="service-slide__top">
+              <h3 class="service-slide__title">Vitrificação de Pintura</h3>
+              <p class="service-slide__desc">Proteção e brilho duradouros para a pintura do seu veículo.</p>
+            </div>
+            <button class="service-slide__btn" onclick="openModal('vit')">Saiba Mais <span class="service-slide__btn-arrow">→</span></button>
           </div>
         </article>
 
