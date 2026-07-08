@@ -156,6 +156,156 @@ if ('loading' in HTMLImageElement.prototype === false) {
   nextBtn?.addEventListener('click', () => scrollByCard(1));
 })();
 
+/* ── Galeria de projeto (popup) ── */
+(function () {
+  // Placeholders: o cliente irá subir as fotos reais de cada projeto.
+  // Cada entrada aceita múltiplas imagens — basta adicionar mais URLs ao array.
+  const projects = {
+    'auto': {
+      title: 'Película Automotiva',
+      images: [
+        'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200&q=80',
+        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80',
+        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
+      ],
+    },
+    'ppf': {
+      title: 'PPF — Proteção Total',
+      images: [
+        'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80',
+        'https://images.unsplash.com/photo-1542362567-b07e54358753?w=1200&q=80',
+      ],
+    },
+    'envelopamento': {
+      title: 'Envelopamento Premium',
+      images: [
+        'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1200&q=80',
+        'https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=1200&q=80',
+      ],
+    },
+    'vitrificacao': {
+      title: 'Vitrificação de Pintura',
+      images: [
+        'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&q=80',
+        'https://images.unsplash.com/photo-1520031441872-265e4ff70366?w=1200&q=80',
+      ],
+    },
+    'arquitetonica': {
+      title: 'Película Arquitetônica',
+      images: [
+        'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80',
+      ],
+    },
+    'envelopamento-esportivo': {
+      title: 'Envelopamento Esportivo',
+      images: [
+        'https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=1200&q=80',
+        'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1200&q=80',
+      ],
+    },
+  };
+
+  const backdrop  = document.getElementById('galleryBackdrop');
+  const modal     = document.getElementById('galleryModal');
+  const stage     = document.getElementById('galleryStage');
+  const imgEl     = document.getElementById('galleryImg');
+  const titleEl   = document.getElementById('galleryModalTitle');
+  const counterEl = document.getElementById('galleryCounter');
+  const thumbsEl  = document.getElementById('galleryThumbs');
+
+  if (!backdrop || !modal) return;
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function render() {
+    const total = currentImages.length;
+    imgEl.src = currentImages[currentIndex];
+    counterEl.textContent = (currentIndex + 1) + ' / ' + total;
+    Array.from(thumbsEl.children).forEach((thumb, i) => {
+      thumb.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  function openGallery(projectId) {
+    const project = projects[projectId];
+    if (!project) return;
+
+    currentImages = project.images;
+    currentIndex = 0;
+    titleEl.textContent = project.title;
+
+    thumbsEl.innerHTML = '';
+    currentImages.forEach((src, i) => {
+      const thumb = document.createElement('img');
+      thumb.src = src;
+      thumb.loading = 'lazy';
+      thumb.alt = project.title + ' — foto ' + (i + 1);
+      thumb.className = 'gallery-modal__thumb';
+      thumb.addEventListener('click', () => { currentIndex = i; render(); });
+      thumbsEl.appendChild(thumb);
+    });
+
+    render();
+    backdrop.classList.add('open');
+    modal.classList.add('open');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeGallery() {
+    backdrop.classList.remove('open');
+    modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
+  }
+
+  function galleryNext() {
+    if (!currentImages.length) return;
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    render();
+  }
+
+  function galleryPrev() {
+    if (!currentImages.length) return;
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    render();
+  }
+
+  // Clique/teclado nos itens do portfólio
+  document.querySelectorAll('.portfolio__item[data-project]').forEach(item => {
+    item.addEventListener('click', () => openGallery(item.dataset.project));
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openGallery(item.dataset.project);
+      }
+    });
+  });
+
+  // Teclado: ESC fecha, setas navegam
+  document.addEventListener('keydown', e => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape') closeGallery();
+    if (e.key === 'ArrowRight') galleryNext();
+    if (e.key === 'ArrowLeft') galleryPrev();
+  });
+
+  // Swipe no mobile
+  let touchStartX = 0;
+  stage.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  stage.addEventListener('touchend', e => {
+    const deltaX = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(deltaX) < 40) return;
+    if (deltaX < 0) galleryNext(); else galleryPrev();
+  }, { passive: true });
+
+  window.openGallery  = openGallery;
+  window.closeGallery = closeGallery;
+  window.galleryNext  = galleryNext;
+  window.galleryPrev  = galleryPrev;
+})();
+
 /* ── Active nav link on scroll ── */
 const sections = document.querySelectorAll('section[id]');
 const navLinks  = document.querySelectorAll('.header__nav-link');
