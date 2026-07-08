@@ -825,6 +825,7 @@ ul { list-style: none; }
   height: 100%;
   aspect-ratio: 4/5;
   object-fit: cover;
+  object-position: center 20%;
 }
 
 .about__caption {
