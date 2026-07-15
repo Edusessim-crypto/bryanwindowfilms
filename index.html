@@ -23,7 +23,7 @@
       <a href="#inicio" class="header__logo">
         <img src="assets/icon-header.png" alt="" class="header__icon" />
         <span class="header__brand">
-          <span class="header__brand-name">BRYAN</span>
+          <span class="header__brand-name" aria-label="BRYAN"><span aria-hidden="true">B</span><span aria-hidden="true">R</span><span aria-hidden="true">Y</span><span aria-hidden="true">A</span><span aria-hidden="true">N</span></span>
           <span class="header__brand-sub">WINDOW FILMS</span>
         </span>
       </a>
@@ -106,7 +106,7 @@
   <!-- ========== SERVIÇOS ========== -->
   <section class="services section" id="servicos">
     <div class="services__header-bg">
-      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=70"
+      <img src="assets/bg-servicos.jpeg"
            alt="" class="services__header-bg-img" loading="lazy" aria-hidden="true" />
       <div class="services__header-overlay"></div>
     </div>
@@ -237,12 +237,48 @@
     </div>
   </section>
 
+  <!-- ========== QUEM SOMOS ========== -->
+  <section class="about section" id="quem-somos">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__photo-wrap fade-in">
+          <img src="assets/bg-fachada-loja.jpeg"
+               alt="Brian Sampaio — Fundador da Bryan Window Films" class="about__photo" loading="lazy" />
+          <div class="about__caption">
+            <span class="about__caption-name">Brian Sampaio</span>
+            <span class="about__caption-role">Fundador — Bryan Window Films</span>
+          </div>
+        </div>
+
+        <div class="about__content fade-in">
+          <p class="section-eyebrow">Quem somos</p>
+          <h2 class="section-title about__title">Experiência e Paixão por<br />Proteção Automotiva</h2>
+          <p class="about__text">
+            Há anos no mercado, a Bryan Window Films nasceu do compromisso em oferecer o que há de mais moderno em proteção
+            veicular e arquitetônica. Nossa trajetória é construída sobre atendimento personalizado, atenção aos detalhes
+            e a busca constante pela excelência técnica em cada serviço realizado.
+          </p>
+          <p class="about__text">
+            Trabalhamos com marcas reconhecidas mundialmente e uma equipe especializada, sempre priorizando a satisfação
+            e a confiança de cada cliente. Mais do que aplicar películas e proteções, entregamos tranquilidade e
+            valorização do seu patrimônio.
+          </p>
+          <!-- Texto institucional genérico — ajustar com informações reais do cliente -->
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== PORTFÓLIO ========== -->
   <section class="portfolio section" id="projetos">
+    <div class="portfolio__header-bg">
+      <img src="assets/bg-portfolio.jpeg"
+           alt="" class="portfolio__header-bg-img" loading="lazy" aria-hidden="true" />
+      <div class="portfolio__header-overlay"></div>
+    </div>
     <div class="container">
       <div class="section-header fade-in">
-        <p class="section-eyebrow">Nossos trabalhos</p>
-        <h2 class="section-title">Resultados que Falam<br />por Si Mesmos</h2>
+        <h2 class="portfolio__title">NOSSOS TRABALHOS</h2>
         <p class="section-sub">Cada projeto entregue com precisão, cuidado e excelência técnica.</p>
       </div>
 
@@ -293,47 +329,14 @@
     </div>
   </section>
 
-  <!-- ========== QUEM SOMOS ========== -->
-  <section class="about section" id="quem-somos">
-    <div class="container">
-      <div class="about__grid">
-        <div class="about__photo-wrap fade-in">
-          <img src="assets/bryan-sampaio.jpg"
-               alt="Bryan Sampaio — Fundador da Bryan Window Films" class="about__photo" loading="lazy" />
-          <div class="about__caption">
-            <span class="about__caption-name">Bryan Sampaio</span>
-            <span class="about__caption-role">Fundador — Bryan Window Films</span>
-          </div>
-        </div>
-
-        <div class="about__content fade-in">
-          <p class="section-eyebrow">Quem somos</p>
-          <h2 class="section-title about__title">Experiência e Paixão por<br />Proteção Automotiva</h2>
-          <p class="about__text">
-            Há anos no mercado, a Bryan Window Films nasceu do compromisso em oferecer o que há de mais moderno em proteção
-            veicular e arquitetônica. Nossa trajetória é construída sobre atendimento personalizado, atenção aos detalhes
-            e a busca constante pela excelência técnica em cada serviço realizado.
-          </p>
-          <p class="about__text">
-            Trabalhamos com marcas reconhecidas mundialmente e uma equipe especializada, sempre priorizando a satisfação
-            e a confiança de cada cliente. Mais do que aplicar películas e proteções, entregamos tranquilidade e
-            valorização do seu patrimônio.
-          </p>
-          <!-- Texto institucional genérico — ajustar com informações reais do cliente -->
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ========== MARCAS PARCEIRAS ========== -->
   <section class="brands section" id="marcas">
     <div class="container">
       <div class="brands__grid fade-in">
-        <!-- Placeholder: substituir por assets/logo-3m-oficial.png (kit de marca Aplicador Autorizado 3M) -->
-        <div class="brands__item">
-          <img src="assets/logo-3m.png" alt="3M — Aplicador Autorizado" class="brands__logo" loading="lazy"
+        <div class="brands__item brands__item--card">
+          <img src="assets/logo-3m-v2.jpg" alt="3M — Ciência. Aplicada à vida." class="brands__logo" loading="lazy"
                onerror="this.parentElement.classList.add('brands__item--fallback'); this.remove();" />
-          <span class="brands__fallback-text">3M — Aplicador Autorizado</span>
+          <span class="brands__fallback-text">3M</span>
         </div>
         <div class="brands__item">
           <img src="assets/logo-meguiars.png" alt="Meguiar's" class="brands__logo" loading="lazy"
@@ -346,9 +349,19 @@
           <span class="brands__fallback-text">NFRC</span>
         </div>
         <div class="brands__item">
-          <img src="assets/logo-skin-cancer-foundation.webp" alt="Skin Cancer Foundation" class="brands__logo" loading="lazy"
+          <img src="assets/logo-skin-cancer-foundation-v2.png" alt="Skin Cancer Foundation — Recommended" class="brands__logo" loading="lazy"
                onerror="this.parentElement.classList.add('brands__item--fallback'); this.remove();" />
           <span class="brands__fallback-text">Skin Cancer Foundation</span>
+        </div>
+        <div class="brands__item">
+          <img src="assets/logo-avery-dennison.webp" alt="Avery Dennison" class="brands__logo" loading="lazy"
+               onerror="this.parentElement.classList.add('brands__item--fallback'); this.remove();" />
+          <span class="brands__fallback-text">Avery Dennison</span>
+        </div>
+        <div class="brands__item brands__item--card">
+          <img src="assets/logo-oracal.png" alt="Oracal" class="brands__logo" loading="lazy"
+               onerror="this.parentElement.classList.add('brands__item--fallback'); this.remove();" />
+          <span class="brands__fallback-text">Oracal</span>
         </div>
       </div>
     </div>
@@ -356,9 +369,11 @@
 
   <!-- ========== CONTATO ========== -->
   <section class="contact section" id="contato">
-    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1600&q=70"
+    <img src="assets/bg-servicos.jpeg"
          alt="" class="contact__bg-img" loading="lazy" aria-hidden="true" />
     <div class="contact__overlay"></div>
+    <div class="contact__glow-top" aria-hidden="true"></div>
+    <div class="contact__glow-bottom" aria-hidden="true"></div>
     <div class="container">
       <div class="contact__content fade-in">
         <div class="contact__logo-wrap">
@@ -454,6 +469,9 @@
 
         <!-- Loja 1 -->
         <div class="store-card">
+          <div class="store-card__photo">
+            <img src="assets/bg-fachada-loja.jpeg" alt="Fachada da loja Bryan Window Films" loading="lazy" />
+          </div>
           <div class="store-card__map">
             <!-- Placeholder: cliente irá fornecer a URL de embed real do Google Maps -->
             <iframe
@@ -472,6 +490,9 @@
 
         <!-- Loja 2 -->
         <div class="store-card">
+          <div class="store-card__photo">
+            <img src="assets/bg-fachada-loja.jpeg" alt="Fachada da loja Bryan Window Films" loading="lazy" />
+          </div>
           <div class="store-card__map">
             <!-- Placeholder: cliente irá fornecer a URL de embed real do Google Maps -->
             <iframe
@@ -502,7 +523,7 @@
           <a href="#inicio" class="footer__logo header__logo">
             <img src="assets/icon-header.png" alt="" class="header__icon" />
             <span class="header__brand">
-              <span class="header__brand-name">BRYAN</span>
+              <span class="header__brand-name" aria-label="BRYAN"><span aria-hidden="true">B</span><span aria-hidden="true">R</span><span aria-hidden="true">Y</span><span aria-hidden="true">A</span><span aria-hidden="true">N</span></span>
               <span class="header__brand-sub">WINDOW FILMS</span>
             </span>
           </a>
@@ -558,9 +579,7 @@
 
       <!-- Selo de credencial 3M -->
       <div class="footer__credential">
-        <!-- Placeholder: substituir por assets/logo-3m-autorizado.png (versão oficial monocromática para fundo escuro do kit de marca Aplicador Autorizado 3M) -->
-        <img src="assets/logo-3m.png" alt="3M" class="footer__credential-logo" loading="lazy" />
-        <p class="footer__credential-text">Aplicador Autorizado 3M</p>
+        <img src="assets/logo-3m-rodape.jpg" alt="3M — Aplicador Autorizado Automotivo, Películas para Vidros" class="footer__credential-logo" loading="lazy" />
       </div>
 
       <div class="footer__bottom">
