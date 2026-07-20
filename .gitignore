@@ -11,3 +11,6 @@ assets/logo-white-h.png
 assets/logo-white.png
 assets/icon-square.png
 .DS_Store
+
+# Pasta de referências brutas enviadas pelo cliente (não faz parte do site)
+assets/refs/

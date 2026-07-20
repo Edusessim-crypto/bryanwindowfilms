@@ -103,7 +103,7 @@ ul { list-style: none; }
 
 /* ── Section common ── */
 .section {
-  padding: 80px 0;
+  padding: 64px 0;
   position: relative;
 }
 
@@ -550,33 +550,28 @@ ul { list-style: none; }
   font-size: clamp(1.8rem, 4.4vw, 2.8rem);
 }
 
-/* Foto de fundo por trás do título/subtítulo da seção de serviços */
-.services__header-bg {
+/* Foto de fundo da seção inteira: Range Rover + logo 3M no teto/parede da loja */
+.services__bg-img {
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 380px;
-  overflow: hidden;
-  z-index: 0;
-}
-.services__header-bg-img {
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 22%;
+  z-index: 0;
 }
-.services__header-overlay {
+.services__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(17,17,17,0.75) 0%, rgba(17,17,17,0.88) 60%, var(--bg) 100%);
+  background: rgba(0,0,0,0.72);
+  z-index: 1;
+  pointer-events: none;
 }
 .services .container { position: relative; z-index: 3; }
 
-@media (max-width: 767px) {
-  .services__header-bg { height: 280px; }
-}
-
 .services-carousel {
   position: relative;
+  z-index: 3;
   padding-left: 20px;
 }
 
@@ -601,7 +596,7 @@ ul { list-style: none; }
   height: 460px;
   border-radius: 0;
   overflow: hidden;
-  background: #1A1A1A;
+  background: #111;
   scroll-snap-align: start;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   transition: transform var(--transition), box-shadow var(--transition);
@@ -626,15 +621,17 @@ ul { list-style: none; }
   background: #1A1A1A;
 }
 
-/* Overlay gradiente: legibilidade garantida em qualquer imagem */
+/* Overlay gradiente: legibilidade garantida em qualquer imagem, inclusive
+   com foto de fundo por trás de toda a seção "O Que Fazemos". */
 .service-slide__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
     rgba(0,0,0,0.75) 0%,
-    rgba(0,0,0,0.25) 40%,
-    rgba(0,0,0,0.25) 60%,
+    rgba(0,0,0,0.4) 30%,
+    rgba(0,0,0,0.4) 55%,
     rgba(0,0,0,0.85) 100%);
+  pointer-events: none;
 }
 
 .service-slide__content {
@@ -778,33 +775,26 @@ ul { list-style: none; }
   letter-spacing: 0.06em;
   color: var(--white);
   margin-bottom: 16px;
-  text-transform: uppercase;
 }
 
-/* Foto de fundo por trás do título/subtítulo da seção de portfólio */
-.portfolio__header-bg {
+/* Foto de fundo da seção inteira: fachada da loja à noite */
+.portfolio__bg-img {
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 380px;
-  overflow: hidden;
-  z-index: 0;
-}
-.portfolio__header-bg-img {
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 35%;
+  z-index: 0;
 }
-.portfolio__header-overlay {
+.portfolio__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(17,17,17,0.75) 0%, rgba(17,17,17,0.88) 60%, var(--bg-dark) 100%);
+  background: rgba(0,0,0,0.72);
+  z-index: 1;
+  pointer-events: none;
 }
 .portfolio .container { position: relative; z-index: 3; }
-
-@media (max-width: 767px) {
-  .portfolio__header-bg { height: 280px; }
-}
 
 .portfolio__grid {
   display: grid;
@@ -883,7 +873,7 @@ ul { list-style: none; }
   height: 100%;
   aspect-ratio: 4/5;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center top;
 }
 
 .about__caption {
@@ -929,59 +919,104 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   CONTATO
+   CONTATO (parceiros + fale conosco + lojas — seção unificada)
    ============================================================ */
-.contact {
-  background: var(--bg-dark);
+.contact-wrap {
   position: relative;
   overflow: hidden;
+  background: var(--bg-dark);
+  padding: 52px 0;
 }
 
 .contact__bg-img {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
   object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(1.05);
   z-index: 0;
+  transform: perspective(1200px) rotateY(-4deg);
 }
 
 .contact__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(17,17,17,0.9) 0%, rgba(10,10,10,0.86) 50%, rgba(17,17,17,0.9) 100%);
-  z-index: 0;
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,0.65) 0%,
+    rgba(0,0,0,0.65) 55%,
+    rgba(0,0,0,0.85) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
-.contact__glow-top {
-  content: '';
+/* Compensa o ponto mais claro da foto (teto/luminária) atrás dos logos,
+   sem alterar o overlay principal de 0.65 pedido para o restante da seção. */
+.contact__glow-fix {
   position: absolute;
-  top: -100px; right: -100px;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, transparent 70%);
+  top: 0; left: 0; right: 0;
+  height: 260px;
+  background: radial-gradient(ellipse at top center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 70%);
+  z-index: 1;
   pointer-events: none;
-  z-index: 0;
-}
-.contact__glow-bottom {
-  content: '';
-  position: absolute;
-  bottom: -80px; left: -80px;
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
 }
 
-.contact .container { position: relative; z-index: 3; }
+.contact-wrap > .container,
+.contact-wrap .brands,
+.contact-wrap .contact,
+.contact-wrap .stores {
+  position: relative;
+  z-index: 3;
+}
+
+/* Marcas parceiras — soltas, sem card de fundo, flutuando sobre a imagem */
+.brands { padding-bottom: 56px; }
+
+.brands__grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.brands__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+}
+
+.brands__logo {
+  height: 100%;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  opacity: 0.95;
+  transition: opacity var(--transition), transform var(--transition);
+}
+.brands__logo:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  .brands__item { height: 90px; }
+}
+
+/* Fale conosco */
+.contact { padding: 45px 0; }
 
 .contact__content {
-  text-align: center;
-  margin-bottom: 56px;
+  text-align: left;
+  padding-left: 4vw;
+  max-width: 760px;
 }
 
 .contact__logo-wrap {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 24px;
 }
 
@@ -994,7 +1029,7 @@ ul { list-style: none; }
 
 .contact__social {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 12px;
   margin-bottom: 28px;
 }
@@ -1018,11 +1053,9 @@ ul { list-style: none; }
   transform: translateY(-2px);
 }
 
-.contact__content .section-eyebrow { color: rgba(255,255,255,0.6); }
-
 .contact__title {
   font-family: var(--font-head);
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1.26rem, 2.8vw, 1.96rem);
   font-weight: 700;
   color: var(--white);
   margin-bottom: 16px;
@@ -1034,6 +1067,7 @@ ul { list-style: none; }
   color: rgba(255,255,255,0.75);
   margin-bottom: 36px;
   line-height: 1.7;
+  text-align: left;
 }
 
 .contact .btn--whatsapp {
@@ -1045,25 +1079,29 @@ ul { list-style: none; }
   box-shadow: 0 12px 40px rgba(37,211,102,0.4);
 }
 
-/* Info cards */
+/* Info cards — em linha, alinhados à esquerda */
 .contact__info {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 16px;
-}
-
-@media (min-width: 600px) {
-  .contact__info { grid-template-columns: repeat(3, 1fr); }
+  margin-top: 36px;
 }
 
 .info-card {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--radius);
-  padding: 24px 20px;
+  padding: 20px;
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  flex: 1 1 190px;
+}
+
+@media (max-width: 768px) {
+  .contact__info { flex-direction: column; }
+  .info-card { flex: 1 1 auto; }
 }
 
 .info-card__icon {
@@ -1097,67 +1135,16 @@ ul { list-style: none; }
   line-height: 1.5;
 }
 
-/* ============================================================
-   MARCAS PARCEIRAS
-   ============================================================ */
-.brands { padding: 64px 0; background: var(--bg); }
+/* Nossas Lojas */
+.stores { padding-top: 56px; }
 
-.brands__grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 56px 80px;
-}
-
-.brands__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 72px;
-}
-
-.brands__item--card {
-  height: 72px;
-  padding: 12px 20px;
-  background: var(--white);
-  border-radius: var(--radius);
-}
-
-.brands__logo {
-  height: 100%;
-  width: auto;
-  max-width: 220px;
-  object-fit: contain;
-  opacity: 0.92;
-  transition: opacity var(--transition), transform var(--transition);
-}
-.brands__logo:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-}
-
-.brands__fallback-text { display: none; }
-
-.brands__item--fallback .brands__fallback-text {
-  display: block;
-  font-family: var(--font-head);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.5);
-  white-space: nowrap;
-}
-
-/* ============================================================
-   NOSSAS LOJAS (MAPAS)
-   ============================================================ */
-.stores { background: var(--bg-dark); }
+.stores__header { text-align: left; margin-bottom: 40px; }
+.stores__header .section-sub { margin: 0; }
 
 .stores__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 20px;
 }
 
 @media (min-width: 800px) {
@@ -1165,33 +1152,38 @@ ul { list-style: none; }
 }
 
 .store-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  background: rgba(10,10,10,0.9);
+  border-radius: var(--radius);
   overflow: hidden;
-  transition: transform var(--transition), border-color var(--transition);
-}
-.store-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 72, 160, 0.4);
 }
 
 .store-card__photo {
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 340px;
   overflow: hidden;
 }
 .store-card__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 30%;
   display: block;
+}
+
+/* Unidade 1 (Haval): foto já vem pré-enquadrada, sem precisar de ajuste de posição */
+.store-card__photo--centered img {
+  object-position: center center;
+}
+
+@media (max-width: 768px) {
+  .store-card__photo { height: 240px; }
 }
 
 .store-card__map {
   width: 100%;
-  aspect-ratio: 16/9;
+  height: 200px;
   background: #0a0a0a;
+  margin-top: 12px;
 }
 .store-card__map iframe {
   width: 100%;
@@ -1200,22 +1192,22 @@ ul { list-style: none; }
 }
 
 .store-card__body {
-  padding: 24px;
+  padding: 12px 4px 4px;
 }
 
 .store-card__name {
   font-family: var(--font-head);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .store-card__address {
   font-size: 0.88rem;
   color: var(--gray);
   line-height: 1.6;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .store-card__link {
@@ -1234,7 +1226,7 @@ ul { list-style: none; }
    ============================================================ */
 .footer {
   background: var(--bg-dark);
-  padding: 64px 0 0;
+  padding: 52px 0 0;
   border-top: 1px solid var(--border);
 }
 
@@ -1333,8 +1325,9 @@ ul { list-style: none; }
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 24px;
   text-align: center;
+  flex-wrap: wrap;
 }
 
 .footer__credential-logo {
@@ -1353,7 +1346,7 @@ ul { list-style: none; }
 }
 
 @media (min-width: 600px) {
-  .footer__credential { flex-direction: row; gap: 20px; }
+  .footer__credential { flex-direction: row; gap: 24px; }
 }
 
 /* ============================================================
@@ -1756,7 +1749,7 @@ img { max-width: 100%; }
 
 /* Large desktop enhancements */
 @media (min-width: 1200px) {
-  .section { padding: 100px 0; }
+  .section { padding: 80px 0; }
   .hero__title { font-size: 2.6rem; }
 }
 
