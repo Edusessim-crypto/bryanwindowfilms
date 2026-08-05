@@ -985,14 +985,15 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 130px;
 }
 
 .brands__logo {
-  height: 100%;
+  max-width: 160px;
+  max-height: 70px;
   width: auto;
-  max-width: 260px;
+  height: auto;
   object-fit: contain;
+  display: block;
   opacity: 0.95;
   transition: opacity var(--transition), transform var(--transition);
 }
@@ -1002,7 +1003,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 767px) {
-  .brands__item { height: 90px; }
+  .brands__logo { max-width: 120px; max-height: 55px; }
 }
 
 /* Fale conosco */
@@ -1089,8 +1090,8 @@ ul { list-style: none; }
 }
 
 .info-card {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--bg-dark);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius);
   padding: 20px;
   display: flex;
@@ -1757,4 +1758,12 @@ img { max-width: 100%; }
 @media (max-width: 360px) {
   .hero__title { font-size: 1.4rem; }
   .btn--lg { padding: 14px 24px; font-size: 0.95rem; }
+}
+
+/* Fundo sólido nos cards de contato — Eduardo 05/08 */
+.info-card {
+  background: #0a0a0a !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
