@@ -1272,6 +1272,7 @@ ul { list-style: none; }
   transition: color var(--transition);
 }
 .store-card__link:hover { color: var(--white); }
+.store-card__links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 
 /* ============================================================
    FOOTER
