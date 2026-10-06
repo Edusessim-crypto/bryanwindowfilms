@@ -246,50 +246,8 @@
         <p class="section-sub">Cada projeto entregue com precisão, cuidado e excelência técnica.</p>
       </div>
 
-      <div class="portfolio__grid">
-        <div class="portfolio__item fade-in" data-project="auto" role="button" tabindex="0" aria-label="Ver galeria — Película Automotiva">
-          <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80"
-               alt="Película Automotiva" loading="lazy" />
-          <div class="portfolio__item-overlay">
-            <span>Película Automotiva</span>
-          </div>
-        </div>
-        <div class="portfolio__item fade-in" data-project="ppf" role="button" tabindex="0" aria-label="Ver galeria — PPF Proteção Total">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80"
-               alt="PPF Proteção Total" loading="lazy" />
-          <div class="portfolio__item-overlay">
-            <span>PPF — Proteção Total</span>
-          </div>
-        </div>
-        <div class="portfolio__item fade-in" data-project="envelopamento" role="button" tabindex="0" aria-label="Ver galeria — Envelopamento Premium">
-          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&q=80"
-               alt="Envelopamento Premium" loading="lazy" />
-          <div class="portfolio__item-overlay">
-            <span>Envelopamento Premium</span>
-          </div>
-        </div>
-        <div class="portfolio__item fade-in" data-project="vitrificacao" role="button" tabindex="0" aria-label="Ver galeria — Vitrificação de Pintura">
-          <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80"
-               alt="Vitrificação de Pintura" loading="lazy" />
-          <div class="portfolio__item-overlay">
-            <span>Vitrificação de Pintura</span>
-          </div>
-        </div>
-        <div class="portfolio__item fade-in" data-project="arquitetonica" role="button" tabindex="0" aria-label="Ver galeria — Película Arquitetônica">
-          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80"
-               alt="Película Arquitetônica" loading="lazy" />
-          <div class="portfolio__item-overlay">
-            <span>Película Arquitetônica</span>
-          </div>
-        </div>
-        <div class="portfolio__item fade-in" data-project="envelopamento-esportivo" role="button" tabindex="0" aria-label="Ver galeria — Envelopamento Esportivo">
-          <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&q=80"
-               alt="Envelopamento Esportivo" loading="lazy" />
-          <div class="portfolio__item-overlay">
-            <span>Envelopamento Esportivo</span>
-          </div>
-        </div>
-      </div>
+      <!-- Cards gerados por js/main.js a partir da lista PROJECTS (assets/projetos/) -->
+      <div class="portfolio__grid" id="portfolioGrid"></div>
     </div>
   </section>
 
@@ -586,12 +544,12 @@
     <button class="gallery-modal__arrow gallery-modal__arrow--next" onclick="galleryNext()" aria-label="Próxima foto">›</button>
 
     <div class="gallery-modal__stage" id="galleryStage">
-      <img src="" alt="" class="gallery-modal__img" id="galleryImg" />
+      <img alt="" class="gallery-modal__img" id="galleryImg" decoding="async" />
     </div>
 
     <div class="gallery-modal__footer">
       <h3 class="gallery-modal__title" id="galleryModalTitle"></h3>
-      <p class="gallery-modal__counter" id="galleryCounter"></p>
+      <p class="gallery-modal__counter" id="galleryCounter" aria-live="polite"></p>
       <div class="gallery-modal__thumbs" id="galleryThumbs"></div>
     </div>
   </div>
